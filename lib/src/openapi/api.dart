@@ -39,20 +39,27 @@ part 'model/error.dart';
 part 'model/finish_reason.dart';
 part 'model/generation_request_optional_params.dart';
 part 'model/image.dart';
+part 'model/image_to_image_request_body.dart';
 part 'model/image_to_image_using_image_strength_request_body.dart';
 part 'model/image_to_image_using_image_strength_request_body_all_of.dart';
 part 'model/image_to_image_using_step_schedule_request_body.dart';
 part 'model/image_to_image_using_step_schedule_request_body_all_of.dart';
+part 'model/init_image_mode.dart';
+part 'model/latent_upscaler_upscale_request_body.dart';
+part 'model/masking_request_body.dart';
 part 'model/masking_using_init_image_alpha_request_body.dart';
 part 'model/masking_using_init_image_alpha_request_body_all_of.dart';
 part 'model/masking_using_mask_image_request_body.dart';
 part 'model/masking_using_mask_image_request_body_all_of.dart';
 part 'model/organization_membership.dart';
+part 'model/real_esrgan_upscale_request_body.dart';
 part 'model/sampler.dart';
 part 'model/style_preset.dart';
 part 'model/text_prompt.dart';
 part 'model/text_to_image_request_body.dart';
 part 'model/text_to_image_request_body_all_of.dart';
+part 'model/upscale_image_request.dart';
+
 
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
 const _dateEpochMarker = 'epoch';
