@@ -25,3 +25,11 @@ doc/api/
 
 .flutter-plugins
 .flutter-plugins-dependencies
+
+# Dart 2 additions
+.dart_tool/
+
+.idea
+.DS_Store
+.directory
+
