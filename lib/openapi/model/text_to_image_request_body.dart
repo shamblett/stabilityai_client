@@ -97,43 +97,46 @@ class TextToImageRequestBody {
   Object? extras;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TextToImageRequestBody &&
-     other.height == height &&
-     other.width == width &&
-     other.textPrompts == textPrompts &&
-     other.cfgScale == cfgScale &&
-     other.clipGuidancePreset == clipGuidancePreset &&
-     other.sampler == sampler &&
-     other.samples == samples &&
-     other.seed == seed &&
-     other.steps == steps &&
-     other.stylePreset == stylePreset &&
-     other.extras == extras;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TextToImageRequestBody &&
+          other.height == height &&
+          other.width == width &&
+          other.textPrompts == textPrompts &&
+          other.cfgScale == cfgScale &&
+          other.clipGuidancePreset == clipGuidancePreset &&
+          other.sampler == sampler &&
+          other.samples == samples &&
+          other.seed == seed &&
+          other.steps == steps &&
+          other.stylePreset == stylePreset &&
+          other.extras == extras;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (height.hashCode) +
-    (width.hashCode) +
-    (textPrompts.hashCode) +
-    (cfgScale.hashCode) +
-    (clipGuidancePreset == null ? 0 : clipGuidancePreset!.hashCode) +
-    (sampler == null ? 0 : sampler!.hashCode) +
-    (samples.hashCode) +
-    (seed.hashCode) +
-    (steps.hashCode) +
-    (stylePreset == null ? 0 : stylePreset!.hashCode) +
-    (extras == null ? 0 : extras!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (height.hashCode) +
+      (width.hashCode) +
+      (textPrompts.hashCode) +
+      (cfgScale.hashCode) +
+      (clipGuidancePreset == null ? 0 : clipGuidancePreset!.hashCode) +
+      (sampler == null ? 0 : sampler!.hashCode) +
+      (samples.hashCode) +
+      (seed.hashCode) +
+      (steps.hashCode) +
+      (stylePreset == null ? 0 : stylePreset!.hashCode) +
+      (extras == null ? 0 : extras!.hashCode);
 
   @override
-  String toString() => 'TextToImageRequestBody[height=$height, width=$width, textPrompts=$textPrompts, cfgScale=$cfgScale, clipGuidancePreset=$clipGuidancePreset, sampler=$sampler, samples=$samples, seed=$seed, steps=$steps, stylePreset=$stylePreset, extras=$extras]';
+  String toString() =>
+      'TextToImageRequestBody[height=$height, width=$width, textPrompts=$textPrompts, cfgScale=$cfgScale, clipGuidancePreset=$clipGuidancePreset, sampler=$sampler, samples=$samples, seed=$seed, steps=$steps, stylePreset=$stylePreset, extras=$extras]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'height'] = this.height;
-      json[r'width'] = this.width;
-      json[r'text_prompts'] = this.textPrompts;
-      json[r'cfg_scale'] = this.cfgScale;
+    json[r'height'] = this.height;
+    json[r'width'] = this.width;
+    json[r'text_prompts'] = this.textPrompts;
+    json[r'cfg_scale'] = this.cfgScale;
     if (this.clipGuidancePreset != null) {
       json[r'clip_guidance_preset'] = this.clipGuidancePreset;
     } else {
@@ -144,9 +147,9 @@ class TextToImageRequestBody {
     } else {
       json[r'sampler'] = null;
     }
-      json[r'samples'] = this.samples;
-      json[r'seed'] = this.seed;
-      json[r'steps'] = this.steps;
+    json[r'samples'] = this.samples;
+    json[r'seed'] = this.seed;
+    json[r'steps'] = this.steps;
     if (this.stylePreset != null) {
       json[r'style_preset'] = this.stylePreset;
     } else {
@@ -172,8 +175,10 @@ class TextToImageRequestBody {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "TextToImageRequestBody[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "TextToImageRequestBody[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "TextToImageRequestBody[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "TextToImageRequestBody[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -185,7 +190,8 @@ class TextToImageRequestBody {
         cfgScale: json[r'cfg_scale'] == null
             ? 7
             : num.parse(json[r'cfg_scale'].toString()),
-        clipGuidancePreset: ClipGuidancePreset.fromJson(json[r'clip_guidance_preset']),
+        clipGuidancePreset:
+            ClipGuidancePreset.fromJson(json[r'clip_guidance_preset']),
         sampler: Sampler.fromJson(json[r'sampler']),
         samples: mapValueOfType<int>(json, r'samples') ?? 1,
         seed: mapValueOfType<int>(json, r'seed') ?? 0,
@@ -197,7 +203,10 @@ class TextToImageRequestBody {
     return null;
   }
 
-  static List<TextToImageRequestBody> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TextToImageRequestBody> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <TextToImageRequestBody>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -225,13 +234,19 @@ class TextToImageRequestBody {
   }
 
   // maps a json object with a list of TextToImageRequestBody-objects as value to a dart map
-  static Map<String, List<TextToImageRequestBody>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<TextToImageRequestBody>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<TextToImageRequestBody>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = TextToImageRequestBody.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = TextToImageRequestBody.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -242,4 +257,3 @@ class TextToImageRequestBody {
     'text_prompts',
   };
 }
-

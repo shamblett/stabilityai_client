@@ -11,7 +11,6 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-
 /// tests for V1UserApi
 void main() {
   // final instance = V1UserApi();
@@ -34,6 +33,5 @@ void main() {
     test('test userBalance', () async {
       // TODO
     });
-
   });
 }

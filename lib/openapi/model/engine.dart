@@ -31,29 +31,32 @@ class Engine {
   EngineTypeEnum type;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Engine &&
-     other.description == description &&
-     other.id == id &&
-     other.name == name &&
-     other.type == type;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Engine &&
+          other.description == description &&
+          other.id == id &&
+          other.name == name &&
+          other.type == type;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (description.hashCode) +
-    (id.hashCode) +
-    (name.hashCode) +
-    (type.hashCode);
+      // ignore: unnecessary_parenthesis
+      (description.hashCode) +
+      (id.hashCode) +
+      (name.hashCode) +
+      (type.hashCode);
 
   @override
-  String toString() => 'Engine[description=$description, id=$id, name=$name, type=$type]';
+  String toString() =>
+      'Engine[description=$description, id=$id, name=$name, type=$type]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'description'] = this.description;
-      json[r'id'] = this.id;
-      json[r'name'] = this.name;
-      json[r'type'] = this.type;
+    json[r'description'] = this.description;
+    json[r'id'] = this.id;
+    json[r'name'] = this.name;
+    json[r'type'] = this.type;
     return json;
   }
 
@@ -69,8 +72,10 @@ class Engine {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "Engine[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "Engine[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "Engine[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "Engine[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -85,7 +90,10 @@ class Engine {
     return null;
   }
 
-  static List<Engine> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Engine> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Engine>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -113,13 +121,19 @@ class Engine {
   }
 
   // maps a json object with a list of Engine-objects as value to a dart map
-  static Map<String, List<Engine>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<Engine>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<Engine>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = Engine.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = Engine.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -164,9 +178,13 @@ class EngineTypeEnum {
     VIDEO,
   ];
 
-  static EngineTypeEnum? fromJson(dynamic value) => EngineTypeEnumTypeTransformer().decode(value);
+  static EngineTypeEnum? fromJson(dynamic value) =>
+      EngineTypeEnumTypeTransformer().decode(value);
 
-  static List<EngineTypeEnum> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EngineTypeEnum> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EngineTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -183,7 +201,8 @@ class EngineTypeEnum {
 /// Transformation class that can [encode] an instance of [EngineTypeEnum] to String,
 /// and [decode] dynamic data back to [EngineTypeEnum].
 class EngineTypeEnumTypeTransformer {
-  factory EngineTypeEnumTypeTransformer() => _instance ??= const EngineTypeEnumTypeTransformer._();
+  factory EngineTypeEnumTypeTransformer() =>
+      _instance ??= const EngineTypeEnumTypeTransformer._();
 
   const EngineTypeEnumTypeTransformer._();
 
@@ -200,12 +219,18 @@ class EngineTypeEnumTypeTransformer {
   EngineTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'AUDIO': return EngineTypeEnum.AUDIO;
-        case r'CLASSIFICATION': return EngineTypeEnum.CLASSIFICATION;
-        case r'PICTURE': return EngineTypeEnum.PICTURE;
-        case r'STORAGE': return EngineTypeEnum.STORAGE;
-        case r'TEXT': return EngineTypeEnum.TEXT;
-        case r'VIDEO': return EngineTypeEnum.VIDEO;
+        case r'AUDIO':
+          return EngineTypeEnum.AUDIO;
+        case r'CLASSIFICATION':
+          return EngineTypeEnum.CLASSIFICATION;
+        case r'PICTURE':
+          return EngineTypeEnum.PICTURE;
+        case r'STORAGE':
+          return EngineTypeEnum.STORAGE;
+        case r'TEXT':
+          return EngineTypeEnum.TEXT;
+        case r'VIDEO':
+          return EngineTypeEnum.VIDEO;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -218,5 +243,3 @@ class EngineTypeEnumTypeTransformer {
   /// Singleton [EngineTypeEnumTypeTransformer] instance.
   static EngineTypeEnumTypeTransformer? _instance;
 }
-
-

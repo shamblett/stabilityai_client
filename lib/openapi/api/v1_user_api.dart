@@ -10,7 +10,6 @@
 
 part of openapi.api;
 
-
 class V1UserApi {
   V1UserApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
@@ -34,7 +33,6 @@ class V1UserApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -57,9 +55,12 @@ class V1UserApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AccountResponseBody',) as AccountResponseBody;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'AccountResponseBody',
+      ) as AccountResponseBody;
     }
     return null;
   }
@@ -80,7 +81,11 @@ class V1UserApi {
   ///
   /// * [String] stabilityClientVersion:
   ///   Used to identify the version of the application or service making the requests. Optional, but recommended for organizational clarity.
-  Future<Response> userBalanceWithHttpInfo({ String? organization, String? stabilityClientID, String? stabilityClientVersion, }) async {
+  Future<Response> userBalanceWithHttpInfo({
+    String? organization,
+    String? stabilityClientID,
+    String? stabilityClientVersion,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/v1/user/balance';
 
@@ -95,14 +100,15 @@ class V1UserApi {
       headerParams[r'Organization'] = parameterToString(organization);
     }
     if (stabilityClientID != null) {
-      headerParams[r'Stability-Client-ID'] = parameterToString(stabilityClientID);
+      headerParams[r'Stability-Client-ID'] =
+          parameterToString(stabilityClientID);
     }
     if (stabilityClientVersion != null) {
-      headerParams[r'Stability-Client-Version'] = parameterToString(stabilityClientVersion);
+      headerParams[r'Stability-Client-Version'] =
+          parameterToString(stabilityClientVersion);
     }
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -129,17 +135,28 @@ class V1UserApi {
   ///
   /// * [String] stabilityClientVersion:
   ///   Used to identify the version of the application or service making the requests. Optional, but recommended for organizational clarity.
-  Future<BalanceResponseBody?> userBalance({ String? organization, String? stabilityClientID, String? stabilityClientVersion, }) async {
-    final response = await userBalanceWithHttpInfo( organization: organization, stabilityClientID: stabilityClientID, stabilityClientVersion: stabilityClientVersion, );
+  Future<BalanceResponseBody?> userBalance({
+    String? organization,
+    String? stabilityClientID,
+    String? stabilityClientVersion,
+  }) async {
+    final response = await userBalanceWithHttpInfo(
+      organization: organization,
+      stabilityClientID: stabilityClientID,
+      stabilityClientVersion: stabilityClientVersion,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'BalanceResponseBody',) as BalanceResponseBody;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'BalanceResponseBody',
+      ) as BalanceResponseBody;
     }
     return null;
   }

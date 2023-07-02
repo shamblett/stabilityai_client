@@ -38,28 +38,31 @@ class AccountResponseBody {
   String? profilePicture;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AccountResponseBody &&
-     other.email == email &&
-     other.id == id &&
-     other.organizations == organizations &&
-     other.profilePicture == profilePicture;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AccountResponseBody &&
+          other.email == email &&
+          other.id == id &&
+          other.organizations == organizations &&
+          other.profilePicture == profilePicture;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (email.hashCode) +
-    (id.hashCode) +
-    (organizations.hashCode) +
-    (profilePicture == null ? 0 : profilePicture!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (email.hashCode) +
+      (id.hashCode) +
+      (organizations.hashCode) +
+      (profilePicture == null ? 0 : profilePicture!.hashCode);
 
   @override
-  String toString() => 'AccountResponseBody[email=$email, id=$id, organizations=$organizations, profilePicture=$profilePicture]';
+  String toString() =>
+      'AccountResponseBody[email=$email, id=$id, organizations=$organizations, profilePicture=$profilePicture]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'email'] = this.email;
-      json[r'id'] = this.id;
-      json[r'organizations'] = this.organizations;
+    json[r'email'] = this.email;
+    json[r'id'] = this.id;
+    json[r'organizations'] = this.organizations;
     if (this.profilePicture != null) {
       json[r'profile_picture'] = this.profilePicture;
     } else {
@@ -80,8 +83,10 @@ class AccountResponseBody {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "AccountResponseBody[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "AccountResponseBody[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "AccountResponseBody[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "AccountResponseBody[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -89,14 +94,18 @@ class AccountResponseBody {
       return AccountResponseBody(
         email: mapValueOfType<String>(json, r'email')!,
         id: mapValueOfType<String>(json, r'id')!,
-        organizations: OrganizationMembership.listFromJson(json[r'organizations']),
+        organizations:
+            OrganizationMembership.listFromJson(json[r'organizations']),
         profilePicture: mapValueOfType<String>(json, r'profile_picture'),
       );
     }
     return null;
   }
 
-  static List<AccountResponseBody> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AccountResponseBody> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AccountResponseBody>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -124,13 +133,19 @@ class AccountResponseBody {
   }
 
   // maps a json object with a list of AccountResponseBody-objects as value to a dart map
-  static Map<String, List<AccountResponseBody>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<AccountResponseBody>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<AccountResponseBody>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = AccountResponseBody.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = AccountResponseBody.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -143,4 +158,3 @@ class AccountResponseBody {
     'organizations',
   };
 }
-

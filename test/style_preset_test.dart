@@ -13,9 +13,5 @@ import 'package:test/test.dart';
 
 // tests for StylePreset
 void main() {
-
-  group('test StylePreset', () {
-
-  });
-
+  group('test StylePreset', () {});
 }

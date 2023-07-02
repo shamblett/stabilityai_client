@@ -81,34 +81,37 @@ class GenerationRequestOptionalParams {
   Object? extras;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GenerationRequestOptionalParams &&
-     other.cfgScale == cfgScale &&
-     other.clipGuidancePreset == clipGuidancePreset &&
-     other.sampler == sampler &&
-     other.samples == samples &&
-     other.seed == seed &&
-     other.steps == steps &&
-     other.stylePreset == stylePreset &&
-     other.extras == extras;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GenerationRequestOptionalParams &&
+          other.cfgScale == cfgScale &&
+          other.clipGuidancePreset == clipGuidancePreset &&
+          other.sampler == sampler &&
+          other.samples == samples &&
+          other.seed == seed &&
+          other.steps == steps &&
+          other.stylePreset == stylePreset &&
+          other.extras == extras;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (cfgScale.hashCode) +
-    (clipGuidancePreset == null ? 0 : clipGuidancePreset!.hashCode) +
-    (sampler == null ? 0 : sampler!.hashCode) +
-    (samples.hashCode) +
-    (seed.hashCode) +
-    (steps.hashCode) +
-    (stylePreset == null ? 0 : stylePreset!.hashCode) +
-    (extras == null ? 0 : extras!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (cfgScale.hashCode) +
+      (clipGuidancePreset == null ? 0 : clipGuidancePreset!.hashCode) +
+      (sampler == null ? 0 : sampler!.hashCode) +
+      (samples.hashCode) +
+      (seed.hashCode) +
+      (steps.hashCode) +
+      (stylePreset == null ? 0 : stylePreset!.hashCode) +
+      (extras == null ? 0 : extras!.hashCode);
 
   @override
-  String toString() => 'GenerationRequestOptionalParams[cfgScale=$cfgScale, clipGuidancePreset=$clipGuidancePreset, sampler=$sampler, samples=$samples, seed=$seed, steps=$steps, stylePreset=$stylePreset, extras=$extras]';
+  String toString() =>
+      'GenerationRequestOptionalParams[cfgScale=$cfgScale, clipGuidancePreset=$clipGuidancePreset, sampler=$sampler, samples=$samples, seed=$seed, steps=$steps, stylePreset=$stylePreset, extras=$extras]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'cfg_scale'] = this.cfgScale;
+    json[r'cfg_scale'] = this.cfgScale;
     if (this.clipGuidancePreset != null) {
       json[r'clip_guidance_preset'] = this.clipGuidancePreset;
     } else {
@@ -119,9 +122,9 @@ class GenerationRequestOptionalParams {
     } else {
       json[r'sampler'] = null;
     }
-      json[r'samples'] = this.samples;
-      json[r'seed'] = this.seed;
-      json[r'steps'] = this.steps;
+    json[r'samples'] = this.samples;
+    json[r'seed'] = this.seed;
+    json[r'steps'] = this.steps;
     if (this.stylePreset != null) {
       json[r'style_preset'] = this.stylePreset;
     } else {
@@ -147,8 +150,10 @@ class GenerationRequestOptionalParams {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GenerationRequestOptionalParams[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GenerationRequestOptionalParams[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "GenerationRequestOptionalParams[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "GenerationRequestOptionalParams[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -157,7 +162,8 @@ class GenerationRequestOptionalParams {
         cfgScale: json[r'cfg_scale'] == null
             ? 7
             : num.parse(json[r'cfg_scale'].toString()),
-        clipGuidancePreset: ClipGuidancePreset.fromJson(json[r'clip_guidance_preset']),
+        clipGuidancePreset:
+            ClipGuidancePreset.fromJson(json[r'clip_guidance_preset']),
         sampler: Sampler.fromJson(json[r'sampler']),
         samples: mapValueOfType<int>(json, r'samples') ?? 1,
         seed: mapValueOfType<int>(json, r'seed') ?? 0,
@@ -169,7 +175,10 @@ class GenerationRequestOptionalParams {
     return null;
   }
 
-  static List<GenerationRequestOptionalParams> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GenerationRequestOptionalParams> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <GenerationRequestOptionalParams>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -182,7 +191,8 @@ class GenerationRequestOptionalParams {
     return result.toList(growable: growable);
   }
 
-  static Map<String, GenerationRequestOptionalParams> mapFromJson(dynamic json) {
+  static Map<String, GenerationRequestOptionalParams> mapFromJson(
+      dynamic json) {
     final map = <String, GenerationRequestOptionalParams>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
@@ -197,20 +207,24 @@ class GenerationRequestOptionalParams {
   }
 
   // maps a json object with a list of GenerationRequestOptionalParams-objects as value to a dart map
-  static Map<String, List<GenerationRequestOptionalParams>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<GenerationRequestOptionalParams>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<GenerationRequestOptionalParams>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GenerationRequestOptionalParams.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = GenerationRequestOptionalParams.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

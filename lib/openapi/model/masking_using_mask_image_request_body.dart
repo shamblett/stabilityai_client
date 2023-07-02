@@ -97,46 +97,49 @@ class MaskingUsingMaskImageRequestBody {
   Object? extras;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MaskingUsingMaskImageRequestBody &&
-     other.textPrompts == textPrompts &&
-     other.initImage == initImage &&
-     other.maskSource == maskSource &&
-     other.maskImage == maskImage &&
-     other.cfgScale == cfgScale &&
-     other.clipGuidancePreset == clipGuidancePreset &&
-     other.sampler == sampler &&
-     other.samples == samples &&
-     other.seed == seed &&
-     other.steps == steps &&
-     other.stylePreset == stylePreset &&
-     other.extras == extras;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MaskingUsingMaskImageRequestBody &&
+          other.textPrompts == textPrompts &&
+          other.initImage == initImage &&
+          other.maskSource == maskSource &&
+          other.maskImage == maskImage &&
+          other.cfgScale == cfgScale &&
+          other.clipGuidancePreset == clipGuidancePreset &&
+          other.sampler == sampler &&
+          other.samples == samples &&
+          other.seed == seed &&
+          other.steps == steps &&
+          other.stylePreset == stylePreset &&
+          other.extras == extras;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (textPrompts.hashCode) +
-    (initImage.hashCode) +
-    (maskSource.hashCode) +
-    (maskImage.hashCode) +
-    (cfgScale.hashCode) +
-    (clipGuidancePreset == null ? 0 : clipGuidancePreset!.hashCode) +
-    (sampler == null ? 0 : sampler!.hashCode) +
-    (samples.hashCode) +
-    (seed.hashCode) +
-    (steps.hashCode) +
-    (stylePreset == null ? 0 : stylePreset!.hashCode) +
-    (extras == null ? 0 : extras!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (textPrompts.hashCode) +
+      (initImage.hashCode) +
+      (maskSource.hashCode) +
+      (maskImage.hashCode) +
+      (cfgScale.hashCode) +
+      (clipGuidancePreset == null ? 0 : clipGuidancePreset!.hashCode) +
+      (sampler == null ? 0 : sampler!.hashCode) +
+      (samples.hashCode) +
+      (seed.hashCode) +
+      (steps.hashCode) +
+      (stylePreset == null ? 0 : stylePreset!.hashCode) +
+      (extras == null ? 0 : extras!.hashCode);
 
   @override
-  String toString() => 'MaskingUsingMaskImageRequestBody[textPrompts=$textPrompts, initImage=$initImage, maskSource=$maskSource, maskImage=$maskImage, cfgScale=$cfgScale, clipGuidancePreset=$clipGuidancePreset, sampler=$sampler, samples=$samples, seed=$seed, steps=$steps, stylePreset=$stylePreset, extras=$extras]';
+  String toString() =>
+      'MaskingUsingMaskImageRequestBody[textPrompts=$textPrompts, initImage=$initImage, maskSource=$maskSource, maskImage=$maskImage, cfgScale=$cfgScale, clipGuidancePreset=$clipGuidancePreset, sampler=$sampler, samples=$samples, seed=$seed, steps=$steps, stylePreset=$stylePreset, extras=$extras]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'text_prompts'] = this.textPrompts;
-      json[r'init_image'] = this.initImage;
-      json[r'mask_source'] = this.maskSource;
-      json[r'mask_image'] = this.maskImage;
-      json[r'cfg_scale'] = this.cfgScale;
+    json[r'text_prompts'] = this.textPrompts;
+    json[r'init_image'] = this.initImage;
+    json[r'mask_source'] = this.maskSource;
+    json[r'mask_image'] = this.maskImage;
+    json[r'cfg_scale'] = this.cfgScale;
     if (this.clipGuidancePreset != null) {
       json[r'clip_guidance_preset'] = this.clipGuidancePreset;
     } else {
@@ -147,9 +150,9 @@ class MaskingUsingMaskImageRequestBody {
     } else {
       json[r'sampler'] = null;
     }
-      json[r'samples'] = this.samples;
-      json[r'seed'] = this.seed;
-      json[r'steps'] = this.steps;
+    json[r'samples'] = this.samples;
+    json[r'seed'] = this.seed;
+    json[r'steps'] = this.steps;
     if (this.stylePreset != null) {
       json[r'style_preset'] = this.stylePreset;
     } else {
@@ -175,8 +178,10 @@ class MaskingUsingMaskImageRequestBody {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MaskingUsingMaskImageRequestBody[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MaskingUsingMaskImageRequestBody[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MaskingUsingMaskImageRequestBody[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MaskingUsingMaskImageRequestBody[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -189,7 +194,8 @@ class MaskingUsingMaskImageRequestBody {
         cfgScale: json[r'cfg_scale'] == null
             ? 7
             : num.parse(json[r'cfg_scale'].toString()),
-        clipGuidancePreset: ClipGuidancePreset.fromJson(json[r'clip_guidance_preset']),
+        clipGuidancePreset:
+            ClipGuidancePreset.fromJson(json[r'clip_guidance_preset']),
         sampler: Sampler.fromJson(json[r'sampler']),
         samples: mapValueOfType<int>(json, r'samples') ?? 1,
         seed: mapValueOfType<int>(json, r'seed') ?? 0,
@@ -201,7 +207,10 @@ class MaskingUsingMaskImageRequestBody {
     return null;
   }
 
-  static List<MaskingUsingMaskImageRequestBody> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MaskingUsingMaskImageRequestBody> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MaskingUsingMaskImageRequestBody>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -214,7 +223,8 @@ class MaskingUsingMaskImageRequestBody {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MaskingUsingMaskImageRequestBody> mapFromJson(dynamic json) {
+  static Map<String, MaskingUsingMaskImageRequestBody> mapFromJson(
+      dynamic json) {
     final map = <String, MaskingUsingMaskImageRequestBody>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
@@ -229,13 +239,19 @@ class MaskingUsingMaskImageRequestBody {
   }
 
   // maps a json object with a list of MaskingUsingMaskImageRequestBody-objects as value to a dart map
-  static Map<String, List<MaskingUsingMaskImageRequestBody>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MaskingUsingMaskImageRequestBody>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MaskingUsingMaskImageRequestBody>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = MaskingUsingMaskImageRequestBody.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = MaskingUsingMaskImageRequestBody.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -249,4 +265,3 @@ class MaskingUsingMaskImageRequestBody {
     'mask_image',
   };
 }
-

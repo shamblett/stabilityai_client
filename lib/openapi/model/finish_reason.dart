@@ -34,9 +34,13 @@ class FinishReason {
     CONTENT_FILTERED,
   ];
 
-  static FinishReason? fromJson(dynamic value) => FinishReasonTypeTransformer().decode(value);
+  static FinishReason? fromJson(dynamic value) =>
+      FinishReasonTypeTransformer().decode(value);
 
-  static List<FinishReason> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<FinishReason> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <FinishReason>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -53,7 +57,8 @@ class FinishReason {
 /// Transformation class that can [encode] an instance of [FinishReason] to String,
 /// and [decode] dynamic data back to [FinishReason].
 class FinishReasonTypeTransformer {
-  factory FinishReasonTypeTransformer() => _instance ??= const FinishReasonTypeTransformer._();
+  factory FinishReasonTypeTransformer() =>
+      _instance ??= const FinishReasonTypeTransformer._();
 
   const FinishReasonTypeTransformer._();
 
@@ -70,9 +75,12 @@ class FinishReasonTypeTransformer {
   FinishReason? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'SUCCESS': return FinishReason.SUCCESS;
-        case r'ERROR': return FinishReason.ERROR;
-        case r'CONTENT_FILTERED': return FinishReason.CONTENT_FILTERED;
+        case r'SUCCESS':
+          return FinishReason.SUCCESS;
+        case r'ERROR':
+          return FinishReason.ERROR;
+        case r'CONTENT_FILTERED':
+          return FinishReason.CONTENT_FILTERED;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -85,4 +93,3 @@ class FinishReasonTypeTransformer {
   /// Singleton [FinishReasonTypeTransformer] instance.
   static FinishReasonTypeTransformer? _instance;
 }
-

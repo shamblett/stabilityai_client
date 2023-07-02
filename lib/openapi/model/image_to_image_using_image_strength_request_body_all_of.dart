@@ -33,47 +33,51 @@ class ImageToImageUsingImageStrengthRequestBodyAllOf {
   ///
   InitImageMode? initImageMode;
 
-  /// How much influence the `init_image` has on the diffusion process. Values close to `1` will yield images very similar to the `init_image` while values close to `0` will yield images wildly different than the `init_image`. The behavior of this is meant to mirror DreamStudio's \"Image Strength\" slider.  <br/> <br/> This parameter is just an alternate way to set `step_schedule_start`, which is done via the calculation `1 - image_strength`. For example, passing in an Image Strength of 35% (`0.35`) would result in a `step_schedule_start` of `0.65`. 
+  /// How much influence the `init_image` has on the diffusion process. Values close to `1` will yield images very similar to the `init_image` while values close to `0` will yield images wildly different than the `init_image`. The behavior of this is meant to mirror DreamStudio's \"Image Strength\" slider.  <br/> <br/> This parameter is just an alternate way to set `step_schedule_start`, which is done via the calculation `1 - image_strength`. For example, passing in an Image Strength of 35% (`0.35`) would result in a `step_schedule_start` of `0.65`.
   ///
   /// Minimum value: 0
   /// Maximum value: 1
   double imageStrength;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ImageToImageUsingImageStrengthRequestBodyAllOf &&
-     other.textPrompts == textPrompts &&
-     other.initImage == initImage &&
-     other.initImageMode == initImageMode &&
-     other.imageStrength == imageStrength;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ImageToImageUsingImageStrengthRequestBodyAllOf &&
+          other.textPrompts == textPrompts &&
+          other.initImage == initImage &&
+          other.initImageMode == initImageMode &&
+          other.imageStrength == imageStrength;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (textPrompts.hashCode) +
-    (initImage.hashCode) +
-    (initImageMode == null ? 0 : initImageMode!.hashCode) +
-    (imageStrength.hashCode);
+      // ignore: unnecessary_parenthesis
+      (textPrompts.hashCode) +
+      (initImage.hashCode) +
+      (initImageMode == null ? 0 : initImageMode!.hashCode) +
+      (imageStrength.hashCode);
 
   @override
-  String toString() => 'ImageToImageUsingImageStrengthRequestBodyAllOf[textPrompts=$textPrompts, initImage=$initImage, initImageMode=$initImageMode, imageStrength=$imageStrength]';
+  String toString() =>
+      'ImageToImageUsingImageStrengthRequestBodyAllOf[textPrompts=$textPrompts, initImage=$initImage, initImageMode=$initImageMode, imageStrength=$imageStrength]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'text_prompts'] = this.textPrompts;
-      json[r'init_image'] = this.initImage;
+    json[r'text_prompts'] = this.textPrompts;
+    json[r'init_image'] = this.initImage;
     if (this.initImageMode != null) {
       json[r'init_image_mode'] = this.initImageMode;
     } else {
       json[r'init_image_mode'] = null;
     }
-      json[r'image_strength'] = this.imageStrength;
+    json[r'image_strength'] = this.imageStrength;
     return json;
   }
 
   /// Returns a new [ImageToImageUsingImageStrengthRequestBodyAllOf] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ImageToImageUsingImageStrengthRequestBodyAllOf? fromJson(dynamic value) {
+  static ImageToImageUsingImageStrengthRequestBodyAllOf? fromJson(
+      dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -82,8 +86,10 @@ class ImageToImageUsingImageStrengthRequestBodyAllOf {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ImageToImageUsingImageStrengthRequestBodyAllOf[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ImageToImageUsingImageStrengthRequestBodyAllOf[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "ImageToImageUsingImageStrengthRequestBodyAllOf[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "ImageToImageUsingImageStrengthRequestBodyAllOf[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -98,11 +104,15 @@ class ImageToImageUsingImageStrengthRequestBodyAllOf {
     return null;
   }
 
-  static List<ImageToImageUsingImageStrengthRequestBodyAllOf> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ImageToImageUsingImageStrengthRequestBodyAllOf> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ImageToImageUsingImageStrengthRequestBodyAllOf>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = ImageToImageUsingImageStrengthRequestBodyAllOf.fromJson(row);
+        final value =
+            ImageToImageUsingImageStrengthRequestBodyAllOf.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -111,12 +121,14 @@ class ImageToImageUsingImageStrengthRequestBodyAllOf {
     return result.toList(growable: growable);
   }
 
-  static Map<String, ImageToImageUsingImageStrengthRequestBodyAllOf> mapFromJson(dynamic json) {
+  static Map<String, ImageToImageUsingImageStrengthRequestBodyAllOf>
+      mapFromJson(dynamic json) {
     final map = <String, ImageToImageUsingImageStrengthRequestBodyAllOf>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ImageToImageUsingImageStrengthRequestBodyAllOf.fromJson(entry.value);
+        final value = ImageToImageUsingImageStrengthRequestBodyAllOf.fromJson(
+            entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -126,13 +138,22 @@ class ImageToImageUsingImageStrengthRequestBodyAllOf {
   }
 
   // maps a json object with a list of ImageToImageUsingImageStrengthRequestBodyAllOf-objects as value to a dart map
-  static Map<String, List<ImageToImageUsingImageStrengthRequestBodyAllOf>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<ImageToImageUsingImageStrengthRequestBodyAllOf>>{};
+  static Map<String, List<ImageToImageUsingImageStrengthRequestBodyAllOf>>
+      mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
+    final map =
+        <String, List<ImageToImageUsingImageStrengthRequestBodyAllOf>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ImageToImageUsingImageStrengthRequestBodyAllOf.listFromJson(entry.value, growable: growable,);
+        map[entry.key] =
+            ImageToImageUsingImageStrengthRequestBodyAllOf.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -144,4 +165,3 @@ class ImageToImageUsingImageStrengthRequestBodyAllOf {
     'init_image',
   };
 }
-

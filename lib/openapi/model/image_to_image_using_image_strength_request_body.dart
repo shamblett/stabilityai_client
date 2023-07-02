@@ -41,7 +41,7 @@ class ImageToImageUsingImageStrengthRequestBody {
   ///
   InitImageMode? initImageMode;
 
-  /// How much influence the `init_image` has on the diffusion process. Values close to `1` will yield images very similar to the `init_image` while values close to `0` will yield images wildly different than the `init_image`. The behavior of this is meant to mirror DreamStudio's \"Image Strength\" slider.  <br/> <br/> This parameter is just an alternate way to set `step_schedule_start`, which is done via the calculation `1 - image_strength`. For example, passing in an Image Strength of 35% (`0.35`) would result in a `step_schedule_start` of `0.65`. 
+  /// How much influence the `init_image` has on the diffusion process. Values close to `1` will yield images very similar to the `init_image` while values close to `0` will yield images wildly different than the `init_image`. The behavior of this is meant to mirror DreamStudio's \"Image Strength\" slider.  <br/> <br/> This parameter is just an alternate way to set `step_schedule_start`, which is done via the calculation `1 - image_strength`. For example, passing in an Image Strength of 35% (`0.35`) would result in a `step_schedule_start` of `0.65`.
   ///
   /// Minimum value: 0
   /// Maximum value: 1
@@ -105,50 +105,53 @@ class ImageToImageUsingImageStrengthRequestBody {
   Object? extras;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ImageToImageUsingImageStrengthRequestBody &&
-     other.textPrompts == textPrompts &&
-     other.initImage == initImage &&
-     other.initImageMode == initImageMode &&
-     other.imageStrength == imageStrength &&
-     other.cfgScale == cfgScale &&
-     other.clipGuidancePreset == clipGuidancePreset &&
-     other.sampler == sampler &&
-     other.samples == samples &&
-     other.seed == seed &&
-     other.steps == steps &&
-     other.stylePreset == stylePreset &&
-     other.extras == extras;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ImageToImageUsingImageStrengthRequestBody &&
+          other.textPrompts == textPrompts &&
+          other.initImage == initImage &&
+          other.initImageMode == initImageMode &&
+          other.imageStrength == imageStrength &&
+          other.cfgScale == cfgScale &&
+          other.clipGuidancePreset == clipGuidancePreset &&
+          other.sampler == sampler &&
+          other.samples == samples &&
+          other.seed == seed &&
+          other.steps == steps &&
+          other.stylePreset == stylePreset &&
+          other.extras == extras;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (textPrompts.hashCode) +
-    (initImage.hashCode) +
-    (initImageMode == null ? 0 : initImageMode!.hashCode) +
-    (imageStrength.hashCode) +
-    (cfgScale.hashCode) +
-    (clipGuidancePreset == null ? 0 : clipGuidancePreset!.hashCode) +
-    (sampler == null ? 0 : sampler!.hashCode) +
-    (samples.hashCode) +
-    (seed.hashCode) +
-    (steps.hashCode) +
-    (stylePreset == null ? 0 : stylePreset!.hashCode) +
-    (extras == null ? 0 : extras!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (textPrompts.hashCode) +
+      (initImage.hashCode) +
+      (initImageMode == null ? 0 : initImageMode!.hashCode) +
+      (imageStrength.hashCode) +
+      (cfgScale.hashCode) +
+      (clipGuidancePreset == null ? 0 : clipGuidancePreset!.hashCode) +
+      (sampler == null ? 0 : sampler!.hashCode) +
+      (samples.hashCode) +
+      (seed.hashCode) +
+      (steps.hashCode) +
+      (stylePreset == null ? 0 : stylePreset!.hashCode) +
+      (extras == null ? 0 : extras!.hashCode);
 
   @override
-  String toString() => 'ImageToImageUsingImageStrengthRequestBody[textPrompts=$textPrompts, initImage=$initImage, initImageMode=$initImageMode, imageStrength=$imageStrength, cfgScale=$cfgScale, clipGuidancePreset=$clipGuidancePreset, sampler=$sampler, samples=$samples, seed=$seed, steps=$steps, stylePreset=$stylePreset, extras=$extras]';
+  String toString() =>
+      'ImageToImageUsingImageStrengthRequestBody[textPrompts=$textPrompts, initImage=$initImage, initImageMode=$initImageMode, imageStrength=$imageStrength, cfgScale=$cfgScale, clipGuidancePreset=$clipGuidancePreset, sampler=$sampler, samples=$samples, seed=$seed, steps=$steps, stylePreset=$stylePreset, extras=$extras]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'text_prompts'] = this.textPrompts;
-      json[r'init_image'] = this.initImage;
+    json[r'text_prompts'] = this.textPrompts;
+    json[r'init_image'] = this.initImage;
     if (this.initImageMode != null) {
       json[r'init_image_mode'] = this.initImageMode;
     } else {
       json[r'init_image_mode'] = null;
     }
-      json[r'image_strength'] = this.imageStrength;
-      json[r'cfg_scale'] = this.cfgScale;
+    json[r'image_strength'] = this.imageStrength;
+    json[r'cfg_scale'] = this.cfgScale;
     if (this.clipGuidancePreset != null) {
       json[r'clip_guidance_preset'] = this.clipGuidancePreset;
     } else {
@@ -159,9 +162,9 @@ class ImageToImageUsingImageStrengthRequestBody {
     } else {
       json[r'sampler'] = null;
     }
-      json[r'samples'] = this.samples;
-      json[r'seed'] = this.seed;
-      json[r'steps'] = this.steps;
+    json[r'samples'] = this.samples;
+    json[r'seed'] = this.seed;
+    json[r'steps'] = this.steps;
     if (this.stylePreset != null) {
       json[r'style_preset'] = this.stylePreset;
     } else {
@@ -187,8 +190,10 @@ class ImageToImageUsingImageStrengthRequestBody {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ImageToImageUsingImageStrengthRequestBody[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ImageToImageUsingImageStrengthRequestBody[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "ImageToImageUsingImageStrengthRequestBody[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "ImageToImageUsingImageStrengthRequestBody[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -201,7 +206,8 @@ class ImageToImageUsingImageStrengthRequestBody {
         cfgScale: json[r'cfg_scale'] == null
             ? 7
             : num.parse(json[r'cfg_scale'].toString()),
-        clipGuidancePreset: ClipGuidancePreset.fromJson(json[r'clip_guidance_preset']),
+        clipGuidancePreset:
+            ClipGuidancePreset.fromJson(json[r'clip_guidance_preset']),
         sampler: Sampler.fromJson(json[r'sampler']),
         samples: mapValueOfType<int>(json, r'samples') ?? 1,
         seed: mapValueOfType<int>(json, r'seed') ?? 0,
@@ -213,7 +219,10 @@ class ImageToImageUsingImageStrengthRequestBody {
     return null;
   }
 
-  static List<ImageToImageUsingImageStrengthRequestBody> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ImageToImageUsingImageStrengthRequestBody> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ImageToImageUsingImageStrengthRequestBody>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -226,12 +235,14 @@ class ImageToImageUsingImageStrengthRequestBody {
     return result.toList(growable: growable);
   }
 
-  static Map<String, ImageToImageUsingImageStrengthRequestBody> mapFromJson(dynamic json) {
+  static Map<String, ImageToImageUsingImageStrengthRequestBody> mapFromJson(
+      dynamic json) {
     final map = <String, ImageToImageUsingImageStrengthRequestBody>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ImageToImageUsingImageStrengthRequestBody.fromJson(entry.value);
+        final value =
+            ImageToImageUsingImageStrengthRequestBody.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -241,13 +252,20 @@ class ImageToImageUsingImageStrengthRequestBody {
   }
 
   // maps a json object with a list of ImageToImageUsingImageStrengthRequestBody-objects as value to a dart map
-  static Map<String, List<ImageToImageUsingImageStrengthRequestBody>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ImageToImageUsingImageStrengthRequestBody>>
+      mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ImageToImageUsingImageStrengthRequestBody>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ImageToImageUsingImageStrengthRequestBody.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = ImageToImageUsingImageStrengthRequestBody.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -259,4 +277,3 @@ class ImageToImageUsingImageStrengthRequestBody {
     'init_image',
   };
 }
-

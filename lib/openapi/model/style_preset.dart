@@ -62,9 +62,13 @@ class StylePreset {
     tileTexture,
   ];
 
-  static StylePreset? fromJson(dynamic value) => StylePresetTypeTransformer().decode(value);
+  static StylePreset? fromJson(dynamic value) =>
+      StylePresetTypeTransformer().decode(value);
 
-  static List<StylePreset> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<StylePreset> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <StylePreset>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -81,7 +85,8 @@ class StylePreset {
 /// Transformation class that can [encode] an instance of [StylePreset] to String,
 /// and [decode] dynamic data back to [StylePreset].
 class StylePresetTypeTransformer {
-  factory StylePresetTypeTransformer() => _instance ??= const StylePresetTypeTransformer._();
+  factory StylePresetTypeTransformer() =>
+      _instance ??= const StylePresetTypeTransformer._();
 
   const StylePresetTypeTransformer._();
 
@@ -98,23 +103,40 @@ class StylePresetTypeTransformer {
   StylePreset? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'enhance': return StylePreset.enhance;
-        case r'anime': return StylePreset.anime;
-        case r'photographic': return StylePreset.photographic;
-        case r'digital-art': return StylePreset.digitalArt;
-        case r'comic-book': return StylePreset.comicBook;
-        case r'fantasy-art': return StylePreset.fantasyArt;
-        case r'line-art': return StylePreset.lineArt;
-        case r'analog-film': return StylePreset.analogFilm;
-        case r'neon-punk': return StylePreset.neonPunk;
-        case r'isometric': return StylePreset.isometric;
-        case r'low-poly': return StylePreset.lowPoly;
-        case r'origami': return StylePreset.origami;
-        case r'modeling-compound': return StylePreset.modelingCompound;
-        case r'cinematic': return StylePreset.cinematic;
-        case r'3d-model': return StylePreset.n3dModel;
-        case r'pixel-art': return StylePreset.pixelArt;
-        case r'tile-texture': return StylePreset.tileTexture;
+        case r'enhance':
+          return StylePreset.enhance;
+        case r'anime':
+          return StylePreset.anime;
+        case r'photographic':
+          return StylePreset.photographic;
+        case r'digital-art':
+          return StylePreset.digitalArt;
+        case r'comic-book':
+          return StylePreset.comicBook;
+        case r'fantasy-art':
+          return StylePreset.fantasyArt;
+        case r'line-art':
+          return StylePreset.lineArt;
+        case r'analog-film':
+          return StylePreset.analogFilm;
+        case r'neon-punk':
+          return StylePreset.neonPunk;
+        case r'isometric':
+          return StylePreset.isometric;
+        case r'low-poly':
+          return StylePreset.lowPoly;
+        case r'origami':
+          return StylePreset.origami;
+        case r'modeling-compound':
+          return StylePreset.modelingCompound;
+        case r'cinematic':
+          return StylePreset.cinematic;
+        case r'3d-model':
+          return StylePreset.n3dModel;
+        case r'pixel-art':
+          return StylePreset.pixelArt;
+        case r'tile-texture':
+          return StylePreset.tileTexture;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -127,4 +149,3 @@ class StylePresetTypeTransformer {
   /// Singleton [StylePresetTypeTransformer] instance.
   static StylePresetTypeTransformer? _instance;
 }
-

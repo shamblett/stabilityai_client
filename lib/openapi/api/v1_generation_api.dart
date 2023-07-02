@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-
 class V1GenerationApi {
-  V1GenerationApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  V1GenerationApi([ApiClient? apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -47,7 +47,7 @@ class V1GenerationApi {
   /// * [InitImageMode] initImageMode:
   ///
   /// * [double] imageStrength:
-  ///   How much influence the `init_image` has on the diffusion process. Values close to `1` will yield images very similar to the `init_image` while values close to `0` will yield images wildly different than the `init_image`. The behavior of this is meant to mirror DreamStudio's \\\"Image Strength\\\" slider.  <br/> <br/> This parameter is just an alternate way to set `step_schedule_start`, which is done via the calculation `1 - image_strength`. For example, passing in an Image Strength of 35% (`0.35`) would result in a `step_schedule_start` of `0.65`. 
+  ///   How much influence the `init_image` has on the diffusion process. Values close to `1` will yield images very similar to the `init_image` while values close to `0` will yield images wildly different than the `init_image`. The behavior of this is meant to mirror DreamStudio's \\\"Image Strength\\\" slider.  <br/> <br/> This parameter is just an alternate way to set `step_schedule_start`, which is done via the calculation `1 - image_strength`. For example, passing in an Image Strength of 35% (`0.35`) would result in a `step_schedule_start` of `0.65`.
   ///
   /// * [num] stepScheduleStart:
   ///   Skips a proportion of the start of the diffusion steps, allowing the init_image to influence the final generated image.  Lower values will result in more influence from the init_image, while higher values will result in more influence from the diffusion steps.  (e.g. a value of `0` would simply return you the init_image, where a value of `1` would return you a completely different image.)
@@ -75,10 +75,30 @@ class V1GenerationApi {
   ///
   /// * [Object] extras:
   ///   Extra parameters passed to the engine. These parameters are used for in-development or experimental features and may change without warning, so please use with caution.
-  Future<Response> imageToImageWithHttpInfo(String engineId, List<TextPrompt> textPrompts, MultipartFile initImage, { String? accept, String? organization, String? stabilityClientID, String? stabilityClientVersion, InitImageMode? initImageMode, double? imageStrength, num? stepScheduleStart, num? stepScheduleEnd, num? cfgScale, ClipGuidancePreset? clipGuidancePreset, Sampler? sampler, int? samples, int? seed, int? steps, StylePreset? stylePreset, Object? extras, }) async {
+  Future<Response> imageToImageWithHttpInfo(
+    String engineId,
+    List<TextPrompt> textPrompts,
+    MultipartFile initImage, {
+    String? accept,
+    String? organization,
+    String? stabilityClientID,
+    String? stabilityClientVersion,
+    InitImageMode? initImageMode,
+    double? imageStrength,
+    num? stepScheduleStart,
+    num? stepScheduleEnd,
+    num? cfgScale,
+    ClipGuidancePreset? clipGuidancePreset,
+    Sampler? sampler,
+    int? samples,
+    int? seed,
+    int? steps,
+    StylePreset? stylePreset,
+    Object? extras,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/v1/generation/{engine_id}/image-to-image'
-      .replaceAll('{engine_id}', engineId);
+        .replaceAll('{engine_id}', engineId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -94,10 +114,12 @@ class V1GenerationApi {
       headerParams[r'Organization'] = parameterToString(organization);
     }
     if (stabilityClientID != null) {
-      headerParams[r'Stability-Client-ID'] = parameterToString(stabilityClientID);
+      headerParams[r'Stability-Client-ID'] =
+          parameterToString(stabilityClientID);
     }
     if (stabilityClientVersion != null) {
-      headerParams[r'Stability-Client-Version'] = parameterToString(stabilityClientVersion);
+      headerParams[r'Stability-Client-Version'] =
+          parameterToString(stabilityClientVersion);
     }
 
     const contentTypes = <String>['multipart/form-data'];
@@ -135,7 +157,8 @@ class V1GenerationApi {
     }
     if (clipGuidancePreset != null) {
       hasFields = true;
-      mp.fields[r'clip_guidance_preset'] = parameterToString(clipGuidancePreset);
+      mp.fields[r'clip_guidance_preset'] =
+          parameterToString(clipGuidancePreset);
     }
     if (sampler != null) {
       hasFields = true;
@@ -205,7 +228,7 @@ class V1GenerationApi {
   /// * [InitImageMode] initImageMode:
   ///
   /// * [double] imageStrength:
-  ///   How much influence the `init_image` has on the diffusion process. Values close to `1` will yield images very similar to the `init_image` while values close to `0` will yield images wildly different than the `init_image`. The behavior of this is meant to mirror DreamStudio's \\\"Image Strength\\\" slider.  <br/> <br/> This parameter is just an alternate way to set `step_schedule_start`, which is done via the calculation `1 - image_strength`. For example, passing in an Image Strength of 35% (`0.35`) would result in a `step_schedule_start` of `0.65`. 
+  ///   How much influence the `init_image` has on the diffusion process. Values close to `1` will yield images very similar to the `init_image` while values close to `0` will yield images wildly different than the `init_image`. The behavior of this is meant to mirror DreamStudio's \\\"Image Strength\\\" slider.  <br/> <br/> This parameter is just an alternate way to set `step_schedule_start`, which is done via the calculation `1 - image_strength`. For example, passing in an Image Strength of 35% (`0.35`) would result in a `step_schedule_start` of `0.65`.
   ///
   /// * [num] stepScheduleStart:
   ///   Skips a proportion of the start of the diffusion steps, allowing the init_image to influence the final generated image.  Lower values will result in more influence from the init_image, while higher values will result in more influence from the diffusion steps.  (e.g. a value of `0` would simply return you the init_image, where a value of `1` would return you a completely different image.)
@@ -233,20 +256,61 @@ class V1GenerationApi {
   ///
   /// * [Object] extras:
   ///   Extra parameters passed to the engine. These parameters are used for in-development or experimental features and may change without warning, so please use with caution.
-  Future<List<Image>?> imageToImage(String engineId, List<TextPrompt> textPrompts, MultipartFile initImage, { String? accept, String? organization, String? stabilityClientID, String? stabilityClientVersion, InitImageMode? initImageMode, double? imageStrength, num? stepScheduleStart, num? stepScheduleEnd, num? cfgScale, ClipGuidancePreset? clipGuidancePreset, Sampler? sampler, int? samples, int? seed, int? steps, StylePreset? stylePreset, Object? extras, }) async {
-    final response = await imageToImageWithHttpInfo(engineId, textPrompts, initImage,  accept: accept, organization: organization, stabilityClientID: stabilityClientID, stabilityClientVersion: stabilityClientVersion, initImageMode: initImageMode, imageStrength: imageStrength, stepScheduleStart: stepScheduleStart, stepScheduleEnd: stepScheduleEnd, cfgScale: cfgScale, clipGuidancePreset: clipGuidancePreset, sampler: sampler, samples: samples, seed: seed, steps: steps, stylePreset: stylePreset, extras: extras, );
+  Future<List<Image>?> imageToImage(
+    String engineId,
+    List<TextPrompt> textPrompts,
+    MultipartFile initImage, {
+    String? accept,
+    String? organization,
+    String? stabilityClientID,
+    String? stabilityClientVersion,
+    InitImageMode? initImageMode,
+    double? imageStrength,
+    num? stepScheduleStart,
+    num? stepScheduleEnd,
+    num? cfgScale,
+    ClipGuidancePreset? clipGuidancePreset,
+    Sampler? sampler,
+    int? samples,
+    int? seed,
+    int? steps,
+    StylePreset? stylePreset,
+    Object? extras,
+  }) async {
+    final response = await imageToImageWithHttpInfo(
+      engineId,
+      textPrompts,
+      initImage,
+      accept: accept,
+      organization: organization,
+      stabilityClientID: stabilityClientID,
+      stabilityClientVersion: stabilityClientVersion,
+      initImageMode: initImageMode,
+      imageStrength: imageStrength,
+      stepScheduleStart: stepScheduleStart,
+      stepScheduleEnd: stepScheduleEnd,
+      cfgScale: cfgScale,
+      clipGuidancePreset: clipGuidancePreset,
+      sampler: sampler,
+      samples: samples,
+      seed: seed,
+      steps: steps,
+      stylePreset: stylePreset,
+      extras: extras,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<Image>') as List)
-        .cast<Image>()
-        .toList();
-
+      return (await apiClient.deserializeAsync(responseBody, 'List<Image>')
+              as List)
+          .cast<Image>()
+          .toList();
     }
     return null;
   }
@@ -305,10 +369,28 @@ class V1GenerationApi {
   ///
   /// * [Object] extras:
   ///   Extra parameters passed to the engine. These parameters are used for in-development or experimental features and may change without warning, so please use with caution.
-  Future<Response> maskingWithHttpInfo(String engineId, MultipartFile initImage, String maskSource, List<TextPrompt> textPrompts, { String? accept, String? organization, String? stabilityClientID, String? stabilityClientVersion, MultipartFile? maskImage, num? cfgScale, ClipGuidancePreset? clipGuidancePreset, Sampler? sampler, int? samples, int? seed, int? steps, StylePreset? stylePreset, Object? extras, }) async {
+  Future<Response> maskingWithHttpInfo(
+    String engineId,
+    MultipartFile initImage,
+    String maskSource,
+    List<TextPrompt> textPrompts, {
+    String? accept,
+    String? organization,
+    String? stabilityClientID,
+    String? stabilityClientVersion,
+    MultipartFile? maskImage,
+    num? cfgScale,
+    ClipGuidancePreset? clipGuidancePreset,
+    Sampler? sampler,
+    int? samples,
+    int? seed,
+    int? steps,
+    StylePreset? stylePreset,
+    Object? extras,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/v1/generation/{engine_id}/image-to-image/masking'
-      .replaceAll('{engine_id}', engineId);
+        .replaceAll('{engine_id}', engineId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -324,10 +406,12 @@ class V1GenerationApi {
       headerParams[r'Organization'] = parameterToString(organization);
     }
     if (stabilityClientID != null) {
-      headerParams[r'Stability-Client-ID'] = parameterToString(stabilityClientID);
+      headerParams[r'Stability-Client-ID'] =
+          parameterToString(stabilityClientID);
     }
     if (stabilityClientVersion != null) {
-      headerParams[r'Stability-Client-Version'] = parameterToString(stabilityClientVersion);
+      headerParams[r'Stability-Client-Version'] =
+          parameterToString(stabilityClientVersion);
     }
 
     const contentTypes = <String>['multipart/form-data'];
@@ -358,7 +442,8 @@ class V1GenerationApi {
     }
     if (clipGuidancePreset != null) {
       hasFields = true;
-      mp.fields[r'clip_guidance_preset'] = parameterToString(clipGuidancePreset);
+      mp.fields[r'clip_guidance_preset'] =
+          parameterToString(clipGuidancePreset);
     }
     if (sampler != null) {
       hasFields = true;
@@ -451,20 +536,57 @@ class V1GenerationApi {
   ///
   /// * [Object] extras:
   ///   Extra parameters passed to the engine. These parameters are used for in-development or experimental features and may change without warning, so please use with caution.
-  Future<List<Image>?> masking(String engineId, MultipartFile initImage, String maskSource, List<TextPrompt> textPrompts, { String? accept, String? organization, String? stabilityClientID, String? stabilityClientVersion, MultipartFile? maskImage, num? cfgScale, ClipGuidancePreset? clipGuidancePreset, Sampler? sampler, int? samples, int? seed, int? steps, StylePreset? stylePreset, Object? extras, }) async {
-    final response = await maskingWithHttpInfo(engineId, initImage, maskSource, textPrompts,  accept: accept, organization: organization, stabilityClientID: stabilityClientID, stabilityClientVersion: stabilityClientVersion, maskImage: maskImage, cfgScale: cfgScale, clipGuidancePreset: clipGuidancePreset, sampler: sampler, samples: samples, seed: seed, steps: steps, stylePreset: stylePreset, extras: extras, );
+  Future<List<Image>?> masking(
+    String engineId,
+    MultipartFile initImage,
+    String maskSource,
+    List<TextPrompt> textPrompts, {
+    String? accept,
+    String? organization,
+    String? stabilityClientID,
+    String? stabilityClientVersion,
+    MultipartFile? maskImage,
+    num? cfgScale,
+    ClipGuidancePreset? clipGuidancePreset,
+    Sampler? sampler,
+    int? samples,
+    int? seed,
+    int? steps,
+    StylePreset? stylePreset,
+    Object? extras,
+  }) async {
+    final response = await maskingWithHttpInfo(
+      engineId,
+      initImage,
+      maskSource,
+      textPrompts,
+      accept: accept,
+      organization: organization,
+      stabilityClientID: stabilityClientID,
+      stabilityClientVersion: stabilityClientVersion,
+      maskImage: maskImage,
+      cfgScale: cfgScale,
+      clipGuidancePreset: clipGuidancePreset,
+      sampler: sampler,
+      samples: samples,
+      seed: seed,
+      steps: steps,
+      stylePreset: stylePreset,
+      extras: extras,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<Image>') as List)
-        .cast<Image>()
-        .toList();
-
+      return (await apiClient.deserializeAsync(responseBody, 'List<Image>')
+              as List)
+          .cast<Image>()
+          .toList();
     }
     return null;
   }
@@ -492,10 +614,17 @@ class V1GenerationApi {
   ///
   /// * [String] stabilityClientVersion:
   ///   Used to identify the version of the application or service making the requests. Optional, but recommended for organizational clarity.
-  Future<Response> textToImageWithHttpInfo(String engineId, TextToImageRequestBody textToImageRequestBody, { String? accept, String? organization, String? stabilityClientID, String? stabilityClientVersion, }) async {
+  Future<Response> textToImageWithHttpInfo(
+    String engineId,
+    TextToImageRequestBody textToImageRequestBody, {
+    String? accept,
+    String? organization,
+    String? stabilityClientID,
+    String? stabilityClientVersion,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/v1/generation/{engine_id}/text-to-image'
-      .replaceAll('{engine_id}', engineId);
+        .replaceAll('{engine_id}', engineId);
 
     // ignore: prefer_final_locals
     Object? postBody = textToImageRequestBody;
@@ -511,14 +640,15 @@ class V1GenerationApi {
       headerParams[r'Organization'] = parameterToString(organization);
     }
     if (stabilityClientID != null) {
-      headerParams[r'Stability-Client-ID'] = parameterToString(stabilityClientID);
+      headerParams[r'Stability-Client-ID'] =
+          parameterToString(stabilityClientID);
     }
     if (stabilityClientVersion != null) {
-      headerParams[r'Stability-Client-Version'] = parameterToString(stabilityClientVersion);
+      headerParams[r'Stability-Client-Version'] =
+          parameterToString(stabilityClientVersion);
     }
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -552,27 +682,42 @@ class V1GenerationApi {
   ///
   /// * [String] stabilityClientVersion:
   ///   Used to identify the version of the application or service making the requests. Optional, but recommended for organizational clarity.
-  Future<List<Image>?> textToImage(String engineId, TextToImageRequestBody textToImageRequestBody, { String? accept, String? organization, String? stabilityClientID, String? stabilityClientVersion, }) async {
-    final response = await textToImageWithHttpInfo(engineId, textToImageRequestBody,  accept: accept, organization: organization, stabilityClientID: stabilityClientID, stabilityClientVersion: stabilityClientVersion, );
+  Future<List<Image>?> textToImage(
+    String engineId,
+    TextToImageRequestBody textToImageRequestBody, {
+    String? accept,
+    String? organization,
+    String? stabilityClientID,
+    String? stabilityClientVersion,
+  }) async {
+    final response = await textToImageWithHttpInfo(
+      engineId,
+      textToImageRequestBody,
+      accept: accept,
+      organization: organization,
+      stabilityClientID: stabilityClientID,
+      stabilityClientVersion: stabilityClientVersion,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<Image>') as List)
-        .cast<Image>()
-        .toList();
-
+      return (await apiClient.deserializeAsync(responseBody, 'List<Image>')
+              as List)
+          .cast<Image>()
+          .toList();
     }
     return null;
   }
 
   /// image-to-image/upscale
   ///
-  /// Create a higher resolution version of an input image.  This operation outputs an image with a maximum pixel count of **4,194,304**. This is equivalent to dimensions such as `2048x2048` and `4096x1024`.  By default, the input image will be upscaled by a factor of 2.  For additional control over the output dimensions, a `width` or `height` parameter may be specified.  For upscaler engines that are ESRGAN-based, refer to the `RealESRGANUpscaleRequestBody` body option below. For upscaler engines that are Stable Diffusion Latent Upscaler-based, refer to the `LatentUpscalerUpscaleRequestBody` body option below.  For more details on the upscaler engines, refer to the [documentation on the Platform site.](https://platform.stability.ai/docs/features/image-upscaling?tab=python) 
+  /// Create a higher resolution version of an input image.  This operation outputs an image with a maximum pixel count of **4,194,304**. This is equivalent to dimensions such as `2048x2048` and `4096x1024`.  By default, the input image will be upscaled by a factor of 2.  For additional control over the output dimensions, a `width` or `height` parameter may be specified.  For upscaler engines that are ESRGAN-based, refer to the `RealESRGANUpscaleRequestBody` body option below. For upscaler engines that are Stable Diffusion Latent Upscaler-based, refer to the `LatentUpscalerUpscaleRequestBody` body option below.  For more details on the upscaler engines, refer to the [documentation on the Platform site.](https://platform.stability.ai/docs/features/image-upscaling?tab=python)
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -611,10 +756,23 @@ class V1GenerationApi {
   ///
   /// * [num] cfgScale:
   ///   How strictly the diffusion process adheres to the prompt text (higher values keep your image closer to your prompt)
-  Future<Response> upscaleImageWithHttpInfo(String engineId, MultipartFile image, { String? accept, String? organization, String? stabilityClientID, String? stabilityClientVersion, int? width, int? height, List<TextPrompt>? textPrompts, int? seed, int? steps, num? cfgScale, }) async {
+  Future<Response> upscaleImageWithHttpInfo(
+    String engineId,
+    MultipartFile image, {
+    String? accept,
+    String? organization,
+    String? stabilityClientID,
+    String? stabilityClientVersion,
+    int? width,
+    int? height,
+    List<TextPrompt>? textPrompts,
+    int? seed,
+    int? steps,
+    num? cfgScale,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/v1/generation/{engine_id}/image-to-image/upscale'
-      .replaceAll('{engine_id}', engineId);
+        .replaceAll('{engine_id}', engineId);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -630,10 +788,12 @@ class V1GenerationApi {
       headerParams[r'Organization'] = parameterToString(organization);
     }
     if (stabilityClientID != null) {
-      headerParams[r'Stability-Client-ID'] = parameterToString(stabilityClientID);
+      headerParams[r'Stability-Client-ID'] =
+          parameterToString(stabilityClientID);
     }
     if (stabilityClientVersion != null) {
-      headerParams[r'Stability-Client-Version'] = parameterToString(stabilityClientVersion);
+      headerParams[r'Stability-Client-Version'] =
+          parameterToString(stabilityClientVersion);
     }
 
     const contentTypes = <String>['multipart/form-data'];
@@ -686,7 +846,7 @@ class V1GenerationApi {
 
   /// image-to-image/upscale
   ///
-  /// Create a higher resolution version of an input image.  This operation outputs an image with a maximum pixel count of **4,194,304**. This is equivalent to dimensions such as `2048x2048` and `4096x1024`.  By default, the input image will be upscaled by a factor of 2.  For additional control over the output dimensions, a `width` or `height` parameter may be specified.  For upscaler engines that are ESRGAN-based, refer to the `RealESRGANUpscaleRequestBody` body option below. For upscaler engines that are Stable Diffusion Latent Upscaler-based, refer to the `LatentUpscalerUpscaleRequestBody` body option below.  For more details on the upscaler engines, refer to the [documentation on the Platform site.](https://platform.stability.ai/docs/features/image-upscaling?tab=python) 
+  /// Create a higher resolution version of an input image.  This operation outputs an image with a maximum pixel count of **4,194,304**. This is equivalent to dimensions such as `2048x2048` and `4096x1024`.  By default, the input image will be upscaled by a factor of 2.  For additional control over the output dimensions, a `width` or `height` parameter may be specified.  For upscaler engines that are ESRGAN-based, refer to the `RealESRGANUpscaleRequestBody` body option below. For upscaler engines that are Stable Diffusion Latent Upscaler-based, refer to the `LatentUpscalerUpscaleRequestBody` body option below.  For more details on the upscaler engines, refer to the [documentation on the Platform site.](https://platform.stability.ai/docs/features/image-upscaling?tab=python)
   ///
   /// Parameters:
   ///
@@ -723,20 +883,47 @@ class V1GenerationApi {
   ///
   /// * [num] cfgScale:
   ///   How strictly the diffusion process adheres to the prompt text (higher values keep your image closer to your prompt)
-  Future<List<Image>?> upscaleImage(String engineId, MultipartFile image, { String? accept, String? organization, String? stabilityClientID, String? stabilityClientVersion, int? width, int? height, List<TextPrompt>? textPrompts, int? seed, int? steps, num? cfgScale, }) async {
-    final response = await upscaleImageWithHttpInfo(engineId, image,  accept: accept, organization: organization, stabilityClientID: stabilityClientID, stabilityClientVersion: stabilityClientVersion, width: width, height: height, textPrompts: textPrompts, seed: seed, steps: steps, cfgScale: cfgScale, );
+  Future<List<Image>?> upscaleImage(
+    String engineId,
+    MultipartFile image, {
+    String? accept,
+    String? organization,
+    String? stabilityClientID,
+    String? stabilityClientVersion,
+    int? width,
+    int? height,
+    List<TextPrompt>? textPrompts,
+    int? seed,
+    int? steps,
+    num? cfgScale,
+  }) async {
+    final response = await upscaleImageWithHttpInfo(
+      engineId,
+      image,
+      accept: accept,
+      organization: organization,
+      stabilityClientID: stabilityClientID,
+      stabilityClientVersion: stabilityClientVersion,
+      width: width,
+      height: height,
+      textPrompts: textPrompts,
+      seed: seed,
+      steps: steps,
+      cfgScale: cfgScale,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<Image>') as List)
-        .cast<Image>()
-        .toList();
-
+      return (await apiClient.deserializeAsync(responseBody, 'List<Image>')
+              as List)
+          .cast<Image>()
+          .toList();
     }
     return null;
   }

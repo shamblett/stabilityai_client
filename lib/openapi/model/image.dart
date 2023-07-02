@@ -39,20 +39,23 @@ class Image {
   num? seed;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Image &&
-     other.base64 == base64 &&
-     other.finishReason == finishReason &&
-     other.seed == seed;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Image &&
+          other.base64 == base64 &&
+          other.finishReason == finishReason &&
+          other.seed == seed;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (base64 == null ? 0 : base64!.hashCode) +
-    (finishReason == null ? 0 : finishReason!.hashCode) +
-    (seed == null ? 0 : seed!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (base64 == null ? 0 : base64!.hashCode) +
+      (finishReason == null ? 0 : finishReason!.hashCode) +
+      (seed == null ? 0 : seed!.hashCode);
 
   @override
-  String toString() => 'Image[base64=$base64, finishReason=$finishReason, seed=$seed]';
+  String toString() =>
+      'Image[base64=$base64, finishReason=$finishReason, seed=$seed]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -86,8 +89,10 @@ class Image {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "Image[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "Image[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "Image[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "Image[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -95,15 +100,17 @@ class Image {
       return Image(
         base64: mapValueOfType<String>(json, r'base64'),
         finishReason: ImageFinishReasonEnum.fromJson(json[r'finishReason']),
-        seed: json[r'seed'] == null
-            ? null
-            : num.parse(json[r'seed'].toString()),
+        seed:
+            json[r'seed'] == null ? null : num.parse(json[r'seed'].toString()),
       );
     }
     return null;
   }
 
-  static List<Image> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Image> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Image>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -131,23 +138,27 @@ class Image {
   }
 
   // maps a json object with a list of Image-objects as value to a dart map
-  static Map<String, List<Image>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<Image>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<Image>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = Image.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = Image.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-
 
 class ImageFinishReasonEnum {
   /// Instantiate a new enum with the provided [value].
@@ -172,9 +183,13 @@ class ImageFinishReasonEnum {
     CONTENT_FILTERED,
   ];
 
-  static ImageFinishReasonEnum? fromJson(dynamic value) => ImageFinishReasonEnumTypeTransformer().decode(value);
+  static ImageFinishReasonEnum? fromJson(dynamic value) =>
+      ImageFinishReasonEnumTypeTransformer().decode(value);
 
-  static List<ImageFinishReasonEnum> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ImageFinishReasonEnum> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ImageFinishReasonEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -191,7 +206,8 @@ class ImageFinishReasonEnum {
 /// Transformation class that can [encode] an instance of [ImageFinishReasonEnum] to String,
 /// and [decode] dynamic data back to [ImageFinishReasonEnum].
 class ImageFinishReasonEnumTypeTransformer {
-  factory ImageFinishReasonEnumTypeTransformer() => _instance ??= const ImageFinishReasonEnumTypeTransformer._();
+  factory ImageFinishReasonEnumTypeTransformer() =>
+      _instance ??= const ImageFinishReasonEnumTypeTransformer._();
 
   const ImageFinishReasonEnumTypeTransformer._();
 
@@ -208,9 +224,12 @@ class ImageFinishReasonEnumTypeTransformer {
   ImageFinishReasonEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'SUCCESS': return ImageFinishReasonEnum.SUCCESS;
-        case r'ERROR': return ImageFinishReasonEnum.ERROR;
-        case r'CONTENT_FILTERED': return ImageFinishReasonEnum.CONTENT_FILTERED;
+        case r'SUCCESS':
+          return ImageFinishReasonEnum.SUCCESS;
+        case r'ERROR':
+          return ImageFinishReasonEnum.ERROR;
+        case r'CONTENT_FILTERED':
+          return ImageFinishReasonEnum.CONTENT_FILTERED;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -223,5 +242,3 @@ class ImageFinishReasonEnumTypeTransformer {
   /// Singleton [ImageFinishReasonEnumTypeTransformer] instance.
   static ImageFinishReasonEnumTypeTransformer? _instance;
 }
-
-

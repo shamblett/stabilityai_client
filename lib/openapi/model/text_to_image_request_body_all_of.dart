@@ -32,26 +32,27 @@ class TextToImageRequestBodyAllOf {
   List<TextPrompt> textPrompts;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TextToImageRequestBodyAllOf &&
-     other.height == height &&
-     other.width == width &&
-     other.textPrompts == textPrompts;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TextToImageRequestBodyAllOf &&
+          other.height == height &&
+          other.width == width &&
+          other.textPrompts == textPrompts;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (height.hashCode) +
-    (width.hashCode) +
-    (textPrompts.hashCode);
+      // ignore: unnecessary_parenthesis
+      (height.hashCode) + (width.hashCode) + (textPrompts.hashCode);
 
   @override
-  String toString() => 'TextToImageRequestBodyAllOf[height=$height, width=$width, textPrompts=$textPrompts]';
+  String toString() =>
+      'TextToImageRequestBodyAllOf[height=$height, width=$width, textPrompts=$textPrompts]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'height'] = this.height;
-      json[r'width'] = this.width;
-      json[r'text_prompts'] = this.textPrompts;
+    json[r'height'] = this.height;
+    json[r'width'] = this.width;
+    json[r'text_prompts'] = this.textPrompts;
     return json;
   }
 
@@ -67,8 +68,10 @@ class TextToImageRequestBodyAllOf {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "TextToImageRequestBodyAllOf[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "TextToImageRequestBodyAllOf[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "TextToImageRequestBodyAllOf[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "TextToImageRequestBodyAllOf[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -82,7 +85,10 @@ class TextToImageRequestBodyAllOf {
     return null;
   }
 
-  static List<TextToImageRequestBodyAllOf> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TextToImageRequestBodyAllOf> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <TextToImageRequestBodyAllOf>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -110,13 +116,19 @@ class TextToImageRequestBodyAllOf {
   }
 
   // maps a json object with a list of TextToImageRequestBodyAllOf-objects as value to a dart map
-  static Map<String, List<TextToImageRequestBodyAllOf>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<TextToImageRequestBodyAllOf>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<TextToImageRequestBodyAllOf>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = TextToImageRequestBodyAllOf.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = TextToImageRequestBodyAllOf.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -127,4 +139,3 @@ class TextToImageRequestBodyAllOf {
     'text_prompts',
   };
 }
-

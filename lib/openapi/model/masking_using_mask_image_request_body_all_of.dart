@@ -32,29 +32,32 @@ class MaskingUsingMaskImageRequestBodyAllOf {
   MultipartFile maskImage;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is MaskingUsingMaskImageRequestBodyAllOf &&
-     other.textPrompts == textPrompts &&
-     other.initImage == initImage &&
-     other.maskSource == maskSource &&
-     other.maskImage == maskImage;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MaskingUsingMaskImageRequestBodyAllOf &&
+          other.textPrompts == textPrompts &&
+          other.initImage == initImage &&
+          other.maskSource == maskSource &&
+          other.maskImage == maskImage;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (textPrompts.hashCode) +
-    (initImage.hashCode) +
-    (maskSource.hashCode) +
-    (maskImage.hashCode);
+      // ignore: unnecessary_parenthesis
+      (textPrompts.hashCode) +
+      (initImage.hashCode) +
+      (maskSource.hashCode) +
+      (maskImage.hashCode);
 
   @override
-  String toString() => 'MaskingUsingMaskImageRequestBodyAllOf[textPrompts=$textPrompts, initImage=$initImage, maskSource=$maskSource, maskImage=$maskImage]';
+  String toString() =>
+      'MaskingUsingMaskImageRequestBodyAllOf[textPrompts=$textPrompts, initImage=$initImage, maskSource=$maskSource, maskImage=$maskImage]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'text_prompts'] = this.textPrompts;
-      json[r'init_image'] = this.initImage;
-      json[r'mask_source'] = this.maskSource;
-      json[r'mask_image'] = this.maskImage;
+    json[r'text_prompts'] = this.textPrompts;
+    json[r'init_image'] = this.initImage;
+    json[r'mask_source'] = this.maskSource;
+    json[r'mask_image'] = this.maskImage;
     return json;
   }
 
@@ -70,8 +73,10 @@ class MaskingUsingMaskImageRequestBodyAllOf {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "MaskingUsingMaskImageRequestBodyAllOf[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "MaskingUsingMaskImageRequestBodyAllOf[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "MaskingUsingMaskImageRequestBodyAllOf[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "MaskingUsingMaskImageRequestBodyAllOf[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -86,7 +91,10 @@ class MaskingUsingMaskImageRequestBodyAllOf {
     return null;
   }
 
-  static List<MaskingUsingMaskImageRequestBodyAllOf> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MaskingUsingMaskImageRequestBodyAllOf> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MaskingUsingMaskImageRequestBodyAllOf>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -99,12 +107,14 @@ class MaskingUsingMaskImageRequestBodyAllOf {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MaskingUsingMaskImageRequestBodyAllOf> mapFromJson(dynamic json) {
+  static Map<String, MaskingUsingMaskImageRequestBodyAllOf> mapFromJson(
+      dynamic json) {
     final map = <String, MaskingUsingMaskImageRequestBodyAllOf>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MaskingUsingMaskImageRequestBodyAllOf.fromJson(entry.value);
+        final value =
+            MaskingUsingMaskImageRequestBodyAllOf.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -114,13 +124,20 @@ class MaskingUsingMaskImageRequestBodyAllOf {
   }
 
   // maps a json object with a list of MaskingUsingMaskImageRequestBodyAllOf-objects as value to a dart map
-  static Map<String, List<MaskingUsingMaskImageRequestBodyAllOf>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<MaskingUsingMaskImageRequestBodyAllOf>>
+      mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<MaskingUsingMaskImageRequestBodyAllOf>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = MaskingUsingMaskImageRequestBodyAllOf.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = MaskingUsingMaskImageRequestBodyAllOf.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -134,4 +151,3 @@ class MaskingUsingMaskImageRequestBodyAllOf {
     'mask_image',
   };
 }
-

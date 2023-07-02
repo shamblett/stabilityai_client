@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-
 class V1EnginesApi {
-  V1EnginesApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  V1EnginesApi([ApiClient? apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -32,7 +32,11 @@ class V1EnginesApi {
   ///
   /// * [String] stabilityClientVersion:
   ///   Used to identify the version of the application or service making the requests. Optional, but recommended for organizational clarity.
-  Future<Response> listEnginesWithHttpInfo({ String? organization, String? stabilityClientID, String? stabilityClientVersion, }) async {
+  Future<Response> listEnginesWithHttpInfo({
+    String? organization,
+    String? stabilityClientID,
+    String? stabilityClientVersion,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/v1/engines/list';
 
@@ -47,14 +51,15 @@ class V1EnginesApi {
       headerParams[r'Organization'] = parameterToString(organization);
     }
     if (stabilityClientID != null) {
-      headerParams[r'Stability-Client-ID'] = parameterToString(stabilityClientID);
+      headerParams[r'Stability-Client-ID'] =
+          parameterToString(stabilityClientID);
     }
     if (stabilityClientVersion != null) {
-      headerParams[r'Stability-Client-Version'] = parameterToString(stabilityClientVersion);
+      headerParams[r'Stability-Client-Version'] =
+          parameterToString(stabilityClientVersion);
     }
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -81,20 +86,29 @@ class V1EnginesApi {
   ///
   /// * [String] stabilityClientVersion:
   ///   Used to identify the version of the application or service making the requests. Optional, but recommended for organizational clarity.
-  Future<List<Engine>?> listEngines({ String? organization, String? stabilityClientID, String? stabilityClientVersion, }) async {
-    final response = await listEnginesWithHttpInfo( organization: organization, stabilityClientID: stabilityClientID, stabilityClientVersion: stabilityClientVersion, );
+  Future<List<Engine>?> listEngines({
+    String? organization,
+    String? stabilityClientID,
+    String? stabilityClientVersion,
+  }) async {
+    final response = await listEnginesWithHttpInfo(
+      organization: organization,
+      stabilityClientID: stabilityClientID,
+      stabilityClientVersion: stabilityClientVersion,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'List<Engine>') as List)
-        .cast<Engine>()
-        .toList();
-
+      return (await apiClient.deserializeAsync(responseBody, 'List<Engine>')
+              as List)
+          .cast<Engine>()
+          .toList();
     }
     return null;
   }

@@ -28,29 +28,29 @@ class OrganizationMembership {
   String role;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is OrganizationMembership &&
-     other.id == id &&
-     other.isDefault == isDefault &&
-     other.name == name &&
-     other.role == role;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is OrganizationMembership &&
+          other.id == id &&
+          other.isDefault == isDefault &&
+          other.name == name &&
+          other.role == role;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (isDefault.hashCode) +
-    (name.hashCode) +
-    (role.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) + (isDefault.hashCode) + (name.hashCode) + (role.hashCode);
 
   @override
-  String toString() => 'OrganizationMembership[id=$id, isDefault=$isDefault, name=$name, role=$role]';
+  String toString() =>
+      'OrganizationMembership[id=$id, isDefault=$isDefault, name=$name, role=$role]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = this.id;
-      json[r'is_default'] = this.isDefault;
-      json[r'name'] = this.name;
-      json[r'role'] = this.role;
+    json[r'id'] = this.id;
+    json[r'is_default'] = this.isDefault;
+    json[r'name'] = this.name;
+    json[r'role'] = this.role;
     return json;
   }
 
@@ -66,8 +66,10 @@ class OrganizationMembership {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "OrganizationMembership[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "OrganizationMembership[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "OrganizationMembership[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "OrganizationMembership[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -82,7 +84,10 @@ class OrganizationMembership {
     return null;
   }
 
-  static List<OrganizationMembership> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<OrganizationMembership> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <OrganizationMembership>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -110,13 +115,19 @@ class OrganizationMembership {
   }
 
   // maps a json object with a list of OrganizationMembership-objects as value to a dart map
-  static Map<String, List<OrganizationMembership>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<OrganizationMembership>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<OrganizationMembership>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = OrganizationMembership.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = OrganizationMembership.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -130,4 +141,3 @@ class OrganizationMembership {
     'role',
   };
 }
-

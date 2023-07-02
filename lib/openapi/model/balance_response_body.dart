@@ -20,20 +20,21 @@ class BalanceResponseBody {
   double credits;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is BalanceResponseBody &&
-     other.credits == credits;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is BalanceResponseBody && other.credits == credits;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (credits.hashCode);
+      // ignore: unnecessary_parenthesis
+      (credits.hashCode);
 
   @override
   String toString() => 'BalanceResponseBody[credits=$credits]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'credits'] = this.credits;
+    json[r'credits'] = this.credits;
     return json;
   }
 
@@ -49,8 +50,10 @@ class BalanceResponseBody {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "BalanceResponseBody[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "BalanceResponseBody[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "BalanceResponseBody[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "BalanceResponseBody[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -62,7 +65,10 @@ class BalanceResponseBody {
     return null;
   }
 
-  static List<BalanceResponseBody> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<BalanceResponseBody> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <BalanceResponseBody>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -90,13 +96,19 @@ class BalanceResponseBody {
   }
 
   // maps a json object with a list of BalanceResponseBody-objects as value to a dart map
-  static Map<String, List<BalanceResponseBody>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<BalanceResponseBody>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<BalanceResponseBody>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = BalanceResponseBody.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = BalanceResponseBody.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -107,4 +119,3 @@ class BalanceResponseBody {
     'credits',
   };
 }
-

@@ -13,9 +13,5 @@ import 'package:test/test.dart';
 
 // tests for ClipGuidancePreset
 void main() {
-
-  group('test ClipGuidancePreset', () {
-
-  });
-
+  group('test ClipGuidancePreset', () {});
 }

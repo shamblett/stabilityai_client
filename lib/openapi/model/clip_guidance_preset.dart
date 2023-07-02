@@ -10,7 +10,6 @@
 
 part of openapi.api;
 
-
 class ClipGuidancePreset {
   /// Instantiate a new enum with the provided [value].
   const ClipGuidancePreset._(this.value);
@@ -42,9 +41,13 @@ class ClipGuidancePreset {
     SLOWEST,
   ];
 
-  static ClipGuidancePreset? fromJson(dynamic value) => ClipGuidancePresetTypeTransformer().decode(value);
+  static ClipGuidancePreset? fromJson(dynamic value) =>
+      ClipGuidancePresetTypeTransformer().decode(value);
 
-  static List<ClipGuidancePreset> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ClipGuidancePreset> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ClipGuidancePreset>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -61,7 +64,8 @@ class ClipGuidancePreset {
 /// Transformation class that can [encode] an instance of [ClipGuidancePreset] to String,
 /// and [decode] dynamic data back to [ClipGuidancePreset].
 class ClipGuidancePresetTypeTransformer {
-  factory ClipGuidancePresetTypeTransformer() => _instance ??= const ClipGuidancePresetTypeTransformer._();
+  factory ClipGuidancePresetTypeTransformer() =>
+      _instance ??= const ClipGuidancePresetTypeTransformer._();
 
   const ClipGuidancePresetTypeTransformer._();
 
@@ -78,13 +82,20 @@ class ClipGuidancePresetTypeTransformer {
   ClipGuidancePreset? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'FAST_BLUE': return ClipGuidancePreset.FAST_BLUE;
-        case r'FAST_GREEN': return ClipGuidancePreset.FAST_GREEN;
-        case r'NONE': return ClipGuidancePreset.NONE;
-        case r'SIMPLE': return ClipGuidancePreset.SIMPLE;
-        case r'SLOW': return ClipGuidancePreset.SLOW;
-        case r'SLOWER': return ClipGuidancePreset.SLOWER;
-        case r'SLOWEST': return ClipGuidancePreset.SLOWEST;
+        case r'FAST_BLUE':
+          return ClipGuidancePreset.FAST_BLUE;
+        case r'FAST_GREEN':
+          return ClipGuidancePreset.FAST_GREEN;
+        case r'NONE':
+          return ClipGuidancePreset.NONE;
+        case r'SIMPLE':
+          return ClipGuidancePreset.SIMPLE;
+        case r'SLOW':
+          return ClipGuidancePreset.SLOW;
+        case r'SLOWER':
+          return ClipGuidancePreset.SLOWER;
+        case r'SLOWEST':
+          return ClipGuidancePreset.SLOWEST;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -97,4 +108,3 @@ class ClipGuidancePresetTypeTransformer {
   /// Singleton [ClipGuidancePresetTypeTransformer] instance.
   static ClipGuidancePresetTypeTransformer? _instance;
 }
-

@@ -53,35 +53,38 @@ class ImageToImageUsingStepScheduleRequestBodyAllOf {
   num? stepScheduleEnd;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ImageToImageUsingStepScheduleRequestBodyAllOf &&
-     other.textPrompts == textPrompts &&
-     other.initImage == initImage &&
-     other.initImageMode == initImageMode &&
-     other.stepScheduleStart == stepScheduleStart &&
-     other.stepScheduleEnd == stepScheduleEnd;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ImageToImageUsingStepScheduleRequestBodyAllOf &&
+          other.textPrompts == textPrompts &&
+          other.initImage == initImage &&
+          other.initImageMode == initImageMode &&
+          other.stepScheduleStart == stepScheduleStart &&
+          other.stepScheduleEnd == stepScheduleEnd;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (textPrompts.hashCode) +
-    (initImage.hashCode) +
-    (initImageMode == null ? 0 : initImageMode!.hashCode) +
-    (stepScheduleStart.hashCode) +
-    (stepScheduleEnd == null ? 0 : stepScheduleEnd!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (textPrompts.hashCode) +
+      (initImage.hashCode) +
+      (initImageMode == null ? 0 : initImageMode!.hashCode) +
+      (stepScheduleStart.hashCode) +
+      (stepScheduleEnd == null ? 0 : stepScheduleEnd!.hashCode);
 
   @override
-  String toString() => 'ImageToImageUsingStepScheduleRequestBodyAllOf[textPrompts=$textPrompts, initImage=$initImage, initImageMode=$initImageMode, stepScheduleStart=$stepScheduleStart, stepScheduleEnd=$stepScheduleEnd]';
+  String toString() =>
+      'ImageToImageUsingStepScheduleRequestBodyAllOf[textPrompts=$textPrompts, initImage=$initImage, initImageMode=$initImageMode, stepScheduleStart=$stepScheduleStart, stepScheduleEnd=$stepScheduleEnd]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'text_prompts'] = this.textPrompts;
-      json[r'init_image'] = this.initImage;
+    json[r'text_prompts'] = this.textPrompts;
+    json[r'init_image'] = this.initImage;
     if (this.initImageMode != null) {
       json[r'init_image_mode'] = this.initImageMode;
     } else {
       json[r'init_image_mode'] = null;
     }
-      json[r'step_schedule_start'] = this.stepScheduleStart;
+    json[r'step_schedule_start'] = this.stepScheduleStart;
     if (this.stepScheduleEnd != null) {
       json[r'step_schedule_end'] = this.stepScheduleEnd;
     } else {
@@ -93,7 +96,8 @@ class ImageToImageUsingStepScheduleRequestBodyAllOf {
   /// Returns a new [ImageToImageUsingStepScheduleRequestBodyAllOf] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ImageToImageUsingStepScheduleRequestBodyAllOf? fromJson(dynamic value) {
+  static ImageToImageUsingStepScheduleRequestBodyAllOf? fromJson(
+      dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -102,8 +106,10 @@ class ImageToImageUsingStepScheduleRequestBodyAllOf {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ImageToImageUsingStepScheduleRequestBodyAllOf[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ImageToImageUsingStepScheduleRequestBodyAllOf[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "ImageToImageUsingStepScheduleRequestBodyAllOf[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "ImageToImageUsingStepScheduleRequestBodyAllOf[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -123,11 +129,15 @@ class ImageToImageUsingStepScheduleRequestBodyAllOf {
     return null;
   }
 
-  static List<ImageToImageUsingStepScheduleRequestBodyAllOf> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ImageToImageUsingStepScheduleRequestBodyAllOf> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ImageToImageUsingStepScheduleRequestBodyAllOf>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = ImageToImageUsingStepScheduleRequestBodyAllOf.fromJson(row);
+        final value =
+            ImageToImageUsingStepScheduleRequestBodyAllOf.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -136,12 +146,14 @@ class ImageToImageUsingStepScheduleRequestBodyAllOf {
     return result.toList(growable: growable);
   }
 
-  static Map<String, ImageToImageUsingStepScheduleRequestBodyAllOf> mapFromJson(dynamic json) {
+  static Map<String, ImageToImageUsingStepScheduleRequestBodyAllOf> mapFromJson(
+      dynamic json) {
     final map = <String, ImageToImageUsingStepScheduleRequestBodyAllOf>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ImageToImageUsingStepScheduleRequestBodyAllOf.fromJson(entry.value);
+        final value =
+            ImageToImageUsingStepScheduleRequestBodyAllOf.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -151,13 +163,21 @@ class ImageToImageUsingStepScheduleRequestBodyAllOf {
   }
 
   // maps a json object with a list of ImageToImageUsingStepScheduleRequestBodyAllOf-objects as value to a dart map
-  static Map<String, List<ImageToImageUsingStepScheduleRequestBodyAllOf>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ImageToImageUsingStepScheduleRequestBodyAllOf>>
+      mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ImageToImageUsingStepScheduleRequestBodyAllOf>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ImageToImageUsingStepScheduleRequestBodyAllOf.listFromJson(entry.value, growable: growable,);
+        map[entry.key] =
+            ImageToImageUsingStepScheduleRequestBodyAllOf.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -169,4 +189,3 @@ class ImageToImageUsingStepScheduleRequestBodyAllOf {
     'init_image',
   };
 }
-

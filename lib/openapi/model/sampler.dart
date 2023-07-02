@@ -48,9 +48,13 @@ class Sampler {
     K_LMS,
   ];
 
-  static Sampler? fromJson(dynamic value) => SamplerTypeTransformer().decode(value);
+  static Sampler? fromJson(dynamic value) =>
+      SamplerTypeTransformer().decode(value);
 
-  static List<Sampler> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Sampler> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Sampler>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -67,7 +71,8 @@ class Sampler {
 /// Transformation class that can [encode] an instance of [Sampler] to String,
 /// and [decode] dynamic data back to [Sampler].
 class SamplerTypeTransformer {
-  factory SamplerTypeTransformer() => _instance ??= const SamplerTypeTransformer._();
+  factory SamplerTypeTransformer() =>
+      _instance ??= const SamplerTypeTransformer._();
 
   const SamplerTypeTransformer._();
 
@@ -84,16 +89,26 @@ class SamplerTypeTransformer {
   Sampler? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'DDIM': return Sampler.DDIM;
-        case r'DDPM': return Sampler.DDPM;
-        case r'K_DPMPP_2M': return Sampler.kDPMPP2M;
-        case r'K_DPMPP_2S_ANCESTRAL': return Sampler.kDPMPP2SANCESTRAL;
-        case r'K_DPM_2': return Sampler.kDPM2;
-        case r'K_DPM_2_ANCESTRAL': return Sampler.kDPM2ANCESTRAL;
-        case r'K_EULER': return Sampler.K_EULER;
-        case r'K_EULER_ANCESTRAL': return Sampler.K_EULER_ANCESTRAL;
-        case r'K_HEUN': return Sampler.K_HEUN;
-        case r'K_LMS': return Sampler.K_LMS;
+        case r'DDIM':
+          return Sampler.DDIM;
+        case r'DDPM':
+          return Sampler.DDPM;
+        case r'K_DPMPP_2M':
+          return Sampler.kDPMPP2M;
+        case r'K_DPMPP_2S_ANCESTRAL':
+          return Sampler.kDPMPP2SANCESTRAL;
+        case r'K_DPM_2':
+          return Sampler.kDPM2;
+        case r'K_DPM_2_ANCESTRAL':
+          return Sampler.kDPM2ANCESTRAL;
+        case r'K_EULER':
+          return Sampler.K_EULER;
+        case r'K_EULER_ANCESTRAL':
+          return Sampler.K_EULER_ANCESTRAL;
+        case r'K_HEUN':
+          return Sampler.K_HEUN;
+        case r'K_LMS':
+          return Sampler.K_LMS;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -106,4 +121,3 @@ class SamplerTypeTransformer {
   /// Singleton [SamplerTypeTransformer] instance.
   static SamplerTypeTransformer? _instance;
 }
-

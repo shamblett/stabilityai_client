@@ -13,9 +13,5 @@ import 'package:test/test.dart';
 
 // tests for FinishReason
 void main() {
-
-  group('test FinishReason', () {
-
-  });
-
+  group('test FinishReason', () {});
 }
