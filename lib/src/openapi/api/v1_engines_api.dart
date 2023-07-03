@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class V1EnginesApi {
+final class V1EnginesApi {
   V1EnginesApi([ApiClient? apiClient])
       : apiClient = apiClient ?? defaultApiClient;
 

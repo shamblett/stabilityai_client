@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class MaskingUsingInitImageAlphaRequestBody {
+final class MaskingUsingInitImageAlphaRequestBody {
   /// Returns a new [MaskingUsingInitImageAlphaRequestBody] instance.
   MaskingUsingInitImageAlphaRequestBody({
     this.textPrompts = const [],

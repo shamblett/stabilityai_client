@@ -11,7 +11,7 @@
 part of openapi.api;
 
 /// Whether to use `image_strength` or `step_schedule_*` to control how much influence the `init_image` has on the result.
-class InitImageMode {
+final class InitImageMode {
   /// Instantiate a new enum with the provided [value].
   const InitImageMode._(this.value);
 
@@ -52,9 +52,9 @@ class InitImageMode {
   }
 }
 
-/// Transformation class that can [encode] an instance of [InitImageMode] to String,
+/// Transformation final class that can [encode] an instance of [InitImageMode] to String,
 /// and [decode] dynamic data back to [InitImageMode].
-class InitImageModeTypeTransformer {
+final class InitImageModeTypeTransformer {
   factory InitImageModeTypeTransformer() =>
       _instance ??= const InitImageModeTypeTransformer._();
 

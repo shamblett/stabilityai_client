@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class ImageToImageUsingStepScheduleRequestBody {
+final class ImageToImageUsingStepScheduleRequestBody {
   /// Returns a new [ImageToImageUsingStepScheduleRequestBody] instance.
   ImageToImageUsingStepScheduleRequestBody({
     this.textPrompts = const [],

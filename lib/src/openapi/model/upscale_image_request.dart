@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class UpscaleImageRequest {
+final class UpscaleImageRequest {
   /// Returns a new [UpscaleImageRequest] instance.
   UpscaleImageRequest({
     required this.image,

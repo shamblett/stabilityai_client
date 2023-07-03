@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class ApiException implements Exception {
+final class ApiException implements Exception {
   ApiException(this.code, this.message);
 
   ApiException.withInner(

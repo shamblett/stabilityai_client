@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class OAuth implements Authentication {
+final class OAuth implements Authentication {
   OAuth({this.accessToken = ''});
 
   String accessToken;

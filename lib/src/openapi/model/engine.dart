@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class Engine {
+final class Engine {
   /// Returns a new [Engine] instance.
   Engine({
     required this.description,
@@ -149,7 +149,7 @@ class Engine {
 }
 
 /// The type of content this engine produces
-class EngineTypeEnum {
+final class EngineTypeEnum {
   /// Instantiate a new enum with the provided [value].
   const EngineTypeEnum._(this.value);
 
@@ -198,9 +198,9 @@ class EngineTypeEnum {
   }
 }
 
-/// Transformation class that can [encode] an instance of [EngineTypeEnum] to String,
+/// Transformation final class that can [encode] an instance of [EngineTypeEnum] to String,
 /// and [decode] dynamic data back to [EngineTypeEnum].
-class EngineTypeEnumTypeTransformer {
+final class EngineTypeEnumTypeTransformer {
   factory EngineTypeEnumTypeTransformer() =>
       _instance ??= const EngineTypeEnumTypeTransformer._();
 

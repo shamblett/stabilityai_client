@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class OrganizationMembership {
+final class OrganizationMembership {
   /// Returns a new [OrganizationMembership] instance.
   OrganizationMembership({
     required this.id,

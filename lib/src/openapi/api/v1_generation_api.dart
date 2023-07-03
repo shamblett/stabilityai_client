@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class V1GenerationApi {
+final class V1GenerationApi {
   V1GenerationApi([ApiClient? apiClient])
       : apiClient = apiClient ?? defaultApiClient;
 

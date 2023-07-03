@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class ApiClient {
+final class ApiClient {
   ApiClient({
     this.basePath = 'https://api.stability.ai',
     this.authentication,

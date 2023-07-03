@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class TextToImageRequestBody {
+final class TextToImageRequestBody {
   /// Returns a new [TextToImageRequestBody] instance.
   TextToImageRequestBody({
     this.height = 512,

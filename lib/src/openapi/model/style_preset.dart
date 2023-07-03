@@ -11,7 +11,7 @@
 part of openapi.api;
 
 /// Pass in a style preset to guide the image model towards a particular style. This list of style presets is subject to change.
-class StylePreset {
+final class StylePreset {
   /// Instantiate a new enum with the provided [value].
   const StylePreset._(this.value);
 
@@ -82,9 +82,9 @@ class StylePreset {
   }
 }
 
-/// Transformation class that can [encode] an instance of [StylePreset] to String,
+/// Transformation final class that can [encode] an instance of [StylePreset] to String,
 /// and [decode] dynamic data back to [StylePreset].
-class StylePresetTypeTransformer {
+final class StylePresetTypeTransformer {
   factory StylePresetTypeTransformer() =>
       _instance ??= const StylePresetTypeTransformer._();
 

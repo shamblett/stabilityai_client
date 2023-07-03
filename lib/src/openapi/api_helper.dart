@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class QueryParam {
+final class QueryParam {
   const QueryParam(this.name, this.value);
 
   final String name;

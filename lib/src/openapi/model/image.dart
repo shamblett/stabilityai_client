@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class Image {
+final class Image {
   /// Returns a new [Image] instance.
   Image({
     this.base64,
@@ -160,7 +160,7 @@ class Image {
   static const requiredKeys = <String>{};
 }
 
-class ImageFinishReasonEnum {
+final class ImageFinishReasonEnum {
   /// Instantiate a new enum with the provided [value].
   const ImageFinishReasonEnum._(this.value);
 
@@ -203,9 +203,9 @@ class ImageFinishReasonEnum {
   }
 }
 
-/// Transformation class that can [encode] an instance of [ImageFinishReasonEnum] to String,
+/// Transformation final class that can [encode] an instance of [ImageFinishReasonEnum] to String,
 /// and [decode] dynamic data back to [ImageFinishReasonEnum].
-class ImageFinishReasonEnumTypeTransformer {
+final class ImageFinishReasonEnumTypeTransformer {
   factory ImageFinishReasonEnumTypeTransformer() =>
       _instance ??= const ImageFinishReasonEnumTypeTransformer._();
 

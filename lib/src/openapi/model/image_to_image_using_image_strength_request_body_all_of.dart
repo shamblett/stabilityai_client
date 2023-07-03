@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class ImageToImageUsingImageStrengthRequestBodyAllOf {
+final class ImageToImageUsingImageStrengthRequestBodyAllOf {
   /// Returns a new [ImageToImageUsingImageStrengthRequestBodyAllOf] instance.
   ImageToImageUsingImageStrengthRequestBodyAllOf({
     this.textPrompts = const [],

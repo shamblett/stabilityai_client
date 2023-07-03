@@ -12,7 +12,7 @@ part of openapi.api;
 
 typedef HttpBearerAuthProvider = String Function();
 
-class HttpBearerAuth implements Authentication {
+final class HttpBearerAuth implements Authentication {
   HttpBearerAuth();
 
   dynamic _accessToken;

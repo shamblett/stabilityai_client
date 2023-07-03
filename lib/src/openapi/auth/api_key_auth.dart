@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class ApiKeyAuth implements Authentication {
+final class ApiKeyAuth implements Authentication {
   ApiKeyAuth(this.location, this.paramName);
 
   final String location;

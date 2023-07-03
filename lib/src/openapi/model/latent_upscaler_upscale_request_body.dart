@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class LatentUpscalerUpscaleRequestBody {
+final class LatentUpscalerUpscaleRequestBody {
   /// Returns a new [LatentUpscalerUpscaleRequestBody] instance.
   LatentUpscalerUpscaleRequestBody({
     required this.image,

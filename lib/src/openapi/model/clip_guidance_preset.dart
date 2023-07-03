@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class ClipGuidancePreset {
+final class ClipGuidancePreset {
   /// Instantiate a new enum with the provided [value].
   const ClipGuidancePreset._(this.value);
 
@@ -61,9 +61,9 @@ class ClipGuidancePreset {
   }
 }
 
-/// Transformation class that can [encode] an instance of [ClipGuidancePreset] to String,
+/// Transformation final class that can [encode] an instance of [ClipGuidancePreset] to String,
 /// and [decode] dynamic data back to [ClipGuidancePreset].
-class ClipGuidancePresetTypeTransformer {
+final class ClipGuidancePresetTypeTransformer {
   factory ClipGuidancePresetTypeTransformer() =>
       _instance ??= const ClipGuidancePresetTypeTransformer._();
 

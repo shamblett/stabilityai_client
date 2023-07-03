@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class TextPrompt {
+final class TextPrompt {
   /// Returns a new [TextPrompt] instance.
   TextPrompt({
     required this.text,

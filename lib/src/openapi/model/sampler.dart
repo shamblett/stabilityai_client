@@ -11,7 +11,7 @@
 part of openapi.api;
 
 /// Which sampler to use for the diffusion process. If this value is omitted we'll automatically select an appropriate sampler for you.
-class Sampler {
+final class Sampler {
   /// Instantiate a new enum with the provided [value].
   const Sampler._(this.value);
 
@@ -68,9 +68,9 @@ class Sampler {
   }
 }
 
-/// Transformation class that can [encode] an instance of [Sampler] to String,
+/// Transformation final class that can [encode] an instance of [Sampler] to String,
 /// and [decode] dynamic data back to [Sampler].
-class SamplerTypeTransformer {
+final class SamplerTypeTransformer {
   factory SamplerTypeTransformer() =>
       _instance ??= const SamplerTypeTransformer._();
 

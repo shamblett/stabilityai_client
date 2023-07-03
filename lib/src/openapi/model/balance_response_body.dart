@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class BalanceResponseBody {
+final class BalanceResponseBody {
   /// Returns a new [BalanceResponseBody] instance.
   BalanceResponseBody({
     required this.credits,

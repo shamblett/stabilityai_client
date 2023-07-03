@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class GenerationRequestOptionalParams {
+final class GenerationRequestOptionalParams {
   /// Returns a new [GenerationRequestOptionalParams] instance.
   GenerationRequestOptionalParams({
     this.cfgScale = 7,

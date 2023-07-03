@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class RealESRGANUpscaleRequestBody {
+final class RealESRGANUpscaleRequestBody {
   /// Returns a new [RealESRGANUpscaleRequestBody] instance.
   RealESRGANUpscaleRequestBody({
     required this.image,

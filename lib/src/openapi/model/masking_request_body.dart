@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class MaskingRequestBody {
+final class MaskingRequestBody {
   /// Returns a new [MaskingRequestBody] instance.
   MaskingRequestBody({
     required this.initImage,

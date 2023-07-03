@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class AccountResponseBody {
+final class AccountResponseBody {
   /// Returns a new [AccountResponseBody] instance.
   AccountResponseBody({
     required this.email,

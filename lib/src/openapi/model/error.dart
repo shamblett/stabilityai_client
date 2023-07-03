@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class Error {
+final class Error {
   /// Returns a new [Error] instance.
   Error({
     required this.id,
@@ -21,7 +21,7 @@ class Error {
   /// A unique identifier for this particular occurrence of the problem.
   String id;
 
-  /// The short-name of this class of errors e.g. `bad_request`.
+  /// The short-name of this final class of errors e.g. `bad_request`.
   String name;
 
   /// A human-readable explanation specific to this occurrence of the problem.

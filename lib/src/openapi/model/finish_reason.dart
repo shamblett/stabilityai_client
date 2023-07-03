@@ -11,7 +11,7 @@
 part of openapi.api;
 
 /// The result of the generation process. - `SUCCESS` indicates success - `ERROR` indicates an error - `CONTENT_FILTERED` indicates the result affected by the content filter and may be blurred.  This header is only present when the `Accept` is set to `image/png`.  Otherwise it is returned in the response body.
-class FinishReason {
+final class FinishReason {
   /// Instantiate a new enum with the provided [value].
   const FinishReason._(this.value);
 
@@ -54,9 +54,9 @@ class FinishReason {
   }
 }
 
-/// Transformation class that can [encode] an instance of [FinishReason] to String,
+/// Transformation final class that can [encode] an instance of [FinishReason] to String,
 /// and [decode] dynamic data back to [FinishReason].
-class FinishReasonTypeTransformer {
+final class FinishReasonTypeTransformer {
   factory FinishReasonTypeTransformer() =>
       _instance ??= const FinishReasonTypeTransformer._();
 

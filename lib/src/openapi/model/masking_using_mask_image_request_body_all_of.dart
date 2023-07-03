@@ -10,7 +10,7 @@
 
 part of openapi.api;
 
-class MaskingUsingMaskImageRequestBodyAllOf {
+final class MaskingUsingMaskImageRequestBodyAllOf {
   /// Returns a new [MaskingUsingMaskImageRequestBodyAllOf] instance.
   MaskingUsingMaskImageRequestBodyAllOf({
     this.textPrompts = const [],
