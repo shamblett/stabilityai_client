@@ -62,14 +62,14 @@ class ImageToImageUsingImageStrengthRequestBodyAllOf {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'text_prompts'] = this.textPrompts;
-    json[r'init_image'] = this.initImage;
-    if (this.initImageMode != null) {
-      json[r'init_image_mode'] = this.initImageMode;
+    json[r'text_prompts'] = textPrompts;
+    json[r'init_image'] = initImage;
+    if (initImageMode != null) {
+      json[r'init_image_mode'] = initImageMode;
     } else {
       json[r'init_image_mode'] = null;
     }
-    json[r'image_strength'] = this.imageStrength;
+    json[r'image_strength'] = imageStrength;
     return json;
   }
 
@@ -85,12 +85,12 @@ class ImageToImageUsingImageStrengthRequestBodyAllOf {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "ImageToImageUsingImageStrengthRequestBodyAllOf[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "ImageToImageUsingImageStrengthRequestBodyAllOf[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

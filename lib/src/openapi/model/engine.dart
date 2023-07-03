@@ -53,10 +53,10 @@ class Engine {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'description'] = this.description;
-    json[r'id'] = this.id;
-    json[r'name'] = this.name;
-    json[r'type'] = this.type;
+    json[r'description'] = description;
+    json[r'id'] = id;
+    json[r'name'] = name;
+    json[r'type'] = type;
     return json;
   }
 
@@ -71,12 +71,12 @@ class Engine {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "Engine[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "Engine[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

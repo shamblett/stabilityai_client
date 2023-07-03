@@ -44,9 +44,9 @@ class TextPrompt {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'text'] = this.text;
-    if (this.weight != null) {
-      json[r'weight'] = this.weight;
+    json[r'text'] = text;
+    if (weight != null) {
+      json[r'weight'] = weight;
     } else {
       json[r'weight'] = null;
     }
@@ -64,12 +64,12 @@ class TextPrompt {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "TextPrompt[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "TextPrompt[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

@@ -96,21 +96,21 @@ class LatentUpscalerUpscaleRequestBody {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'image'] = this.image;
-    if (this.width != null) {
-      json[r'width'] = this.width;
+    json[r'image'] = image;
+    if (width != null) {
+      json[r'width'] = width;
     } else {
       json[r'width'] = null;
     }
-    if (this.height != null) {
-      json[r'height'] = this.height;
+    if (height != null) {
+      json[r'height'] = height;
     } else {
       json[r'height'] = null;
     }
-    json[r'text_prompts'] = this.textPrompts;
-    json[r'seed'] = this.seed;
-    json[r'steps'] = this.steps;
-    json[r'cfg_scale'] = this.cfgScale;
+    json[r'text_prompts'] = textPrompts;
+    json[r'seed'] = seed;
+    json[r'steps'] = steps;
+    json[r'cfg_scale'] = cfgScale;
     return json;
   }
 
@@ -125,12 +125,12 @@ class LatentUpscalerUpscaleRequestBody {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "LatentUpscalerUpscaleRequestBody[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "LatentUpscalerUpscaleRequestBody[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

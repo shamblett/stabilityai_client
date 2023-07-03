@@ -129,30 +129,30 @@ class MaskingUsingInitImageAlphaRequestBody {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'text_prompts'] = this.textPrompts;
-    json[r'init_image'] = this.initImage;
-    json[r'mask_source'] = this.maskSource;
-    json[r'cfg_scale'] = this.cfgScale;
-    if (this.clipGuidancePreset != null) {
-      json[r'clip_guidance_preset'] = this.clipGuidancePreset;
+    json[r'text_prompts'] = textPrompts;
+    json[r'init_image'] = initImage;
+    json[r'mask_source'] = maskSource;
+    json[r'cfg_scale'] = cfgScale;
+    if (clipGuidancePreset != null) {
+      json[r'clip_guidance_preset'] = clipGuidancePreset;
     } else {
       json[r'clip_guidance_preset'] = null;
     }
-    if (this.sampler != null) {
-      json[r'sampler'] = this.sampler;
+    if (sampler != null) {
+      json[r'sampler'] = sampler;
     } else {
       json[r'sampler'] = null;
     }
-    json[r'samples'] = this.samples;
-    json[r'seed'] = this.seed;
-    json[r'steps'] = this.steps;
-    if (this.stylePreset != null) {
-      json[r'style_preset'] = this.stylePreset;
+    json[r'samples'] = samples;
+    json[r'seed'] = seed;
+    json[r'steps'] = steps;
+    if (stylePreset != null) {
+      json[r'style_preset'] = stylePreset;
     } else {
       json[r'style_preset'] = null;
     }
-    if (this.extras != null) {
-      json[r'extras'] = this.extras;
+    if (extras != null) {
+      json[r'extras'] = extras;
     } else {
       json[r'extras'] = null;
     }
@@ -170,12 +170,12 @@ class MaskingUsingInitImageAlphaRequestBody {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "MaskingUsingInitImageAlphaRequestBody[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "MaskingUsingInitImageAlphaRequestBody[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

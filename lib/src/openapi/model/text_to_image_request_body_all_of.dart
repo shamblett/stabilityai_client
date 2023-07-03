@@ -50,9 +50,9 @@ class TextToImageRequestBodyAllOf {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'height'] = this.height;
-    json[r'width'] = this.width;
-    json[r'text_prompts'] = this.textPrompts;
+    json[r'height'] = height;
+    json[r'width'] = width;
+    json[r'text_prompts'] = textPrompts;
     return json;
   }
 
@@ -67,12 +67,12 @@ class TextToImageRequestBodyAllOf {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "TextToImageRequestBodyAllOf[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "TextToImageRequestBodyAllOf[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

@@ -60,11 +60,11 @@ class AccountResponseBody {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'email'] = this.email;
-    json[r'id'] = this.id;
-    json[r'organizations'] = this.organizations;
-    if (this.profilePicture != null) {
-      json[r'profile_picture'] = this.profilePicture;
+    json[r'email'] = email;
+    json[r'id'] = id;
+    json[r'organizations'] = organizations;
+    if (profilePicture != null) {
+      json[r'profile_picture'] = profilePicture;
     } else {
       json[r'profile_picture'] = null;
     }
@@ -82,12 +82,12 @@ class AccountResponseBody {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "AccountResponseBody[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "AccountResponseBody[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

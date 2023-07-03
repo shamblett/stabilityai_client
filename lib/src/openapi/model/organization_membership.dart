@@ -47,10 +47,10 @@ class OrganizationMembership {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'id'] = this.id;
-    json[r'is_default'] = this.isDefault;
-    json[r'name'] = this.name;
-    json[r'role'] = this.role;
+    json[r'id'] = id;
+    json[r'is_default'] = isDefault;
+    json[r'name'] = name;
+    json[r'role'] = role;
     return json;
   }
 
@@ -65,12 +65,12 @@ class OrganizationMembership {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "OrganizationMembership[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "OrganizationMembership[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

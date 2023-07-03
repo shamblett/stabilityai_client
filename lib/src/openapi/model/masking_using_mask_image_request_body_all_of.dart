@@ -54,10 +54,10 @@ class MaskingUsingMaskImageRequestBodyAllOf {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'text_prompts'] = this.textPrompts;
-    json[r'init_image'] = this.initImage;
-    json[r'mask_source'] = this.maskSource;
-    json[r'mask_image'] = this.maskImage;
+    json[r'text_prompts'] = textPrompts;
+    json[r'init_image'] = initImage;
+    json[r'mask_source'] = maskSource;
+    json[r'mask_image'] = maskImage;
     return json;
   }
 
@@ -72,12 +72,12 @@ class MaskingUsingMaskImageRequestBodyAllOf {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "MaskingUsingMaskImageRequestBodyAllOf[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "MaskingUsingMaskImageRequestBodyAllOf[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 

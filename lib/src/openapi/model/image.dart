@@ -59,18 +59,18 @@ class Image {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (this.base64 != null) {
-      json[r'base64'] = this.base64;
+    if (base64 != null) {
+      json[r'base64'] = base64;
     } else {
       json[r'base64'] = null;
     }
-    if (this.finishReason != null) {
-      json[r'finishReason'] = this.finishReason;
+    if (finishReason != null) {
+      json[r'finishReason'] = finishReason;
     } else {
       json[r'finishReason'] = null;
     }
-    if (this.seed != null) {
-      json[r'seed'] = this.seed;
+    if (seed != null) {
+      json[r'seed'] = seed;
     } else {
       json[r'seed'] = null;
     }
@@ -88,12 +88,12 @@ class Image {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
+        for (var key in requiredKeys) {
           assert(json.containsKey(key),
               'Required key "Image[$key]" is missing from JSON.');
           assert(json[key] != null,
               'Required key "Image[$key]" has a null value in JSON.');
-        });
+        }
         return true;
       }());
 
