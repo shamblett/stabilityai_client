@@ -12,7 +12,7 @@ library openapi.api;
 
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
+import 'dart:io' if (dart.library.html) 'dart:html';
 
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
