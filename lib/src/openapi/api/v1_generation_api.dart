@@ -126,15 +126,11 @@ class V1GenerationApi {
 
     bool hasFields = false;
     final mp = MultipartRequest('POST', Uri.parse(path));
-    if (textPrompts != null) {
-      hasFields = true;
-      mp.fields[r'text_prompts'] = parameterToString(textPrompts);
-    }
-    if (initImage != null) {
-      hasFields = true;
-      mp.fields[r'init_image'] = initImage.field;
-      mp.files.add(initImage);
-    }
+    hasFields = true;
+    mp.fields[r'text_prompts'] = parameterToString(textPrompts);
+    hasFields = true;
+    mp.fields[r'init_image'] = initImage.field;
+    mp.files.add(initImage);
     if (initImageMode != null) {
       hasFields = true;
       mp.fields[r'init_image_mode'] = parameterToString(initImageMode);
@@ -418,24 +414,18 @@ class V1GenerationApi {
 
     bool hasFields = false;
     final mp = MultipartRequest('POST', Uri.parse(path));
-    if (initImage != null) {
-      hasFields = true;
-      mp.fields[r'init_image'] = initImage.field;
-      mp.files.add(initImage);
-    }
-    if (maskSource != null) {
-      hasFields = true;
-      mp.fields[r'mask_source'] = parameterToString(maskSource);
-    }
+    hasFields = true;
+    mp.fields[r'init_image'] = initImage.field;
+    mp.files.add(initImage);
+    hasFields = true;
+    mp.fields[r'mask_source'] = parameterToString(maskSource);
     if (maskImage != null) {
       hasFields = true;
       mp.fields[r'mask_image'] = maskImage.field;
       mp.files.add(maskImage);
     }
-    if (textPrompts != null) {
-      hasFields = true;
-      mp.fields[r'text_prompts'] = parameterToString(textPrompts);
-    }
+    hasFields = true;
+    mp.fields[r'text_prompts'] = parameterToString(textPrompts);
     if (cfgScale != null) {
       hasFields = true;
       mp.fields[r'cfg_scale'] = parameterToString(cfgScale);
@@ -800,11 +790,9 @@ class V1GenerationApi {
 
     bool hasFields = false;
     final mp = MultipartRequest('POST', Uri.parse(path));
-    if (image != null) {
-      hasFields = true;
-      mp.fields[r'image'] = image.field;
-      mp.files.add(image);
-    }
+    hasFields = true;
+    mp.fields[r'image'] = image.field;
+    mp.files.add(image);
     if (width != null) {
       hasFields = true;
       mp.fields[r'width'] = parameterToString(width);
