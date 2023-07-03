@@ -83,9 +83,11 @@ class MaskingUsingMaskImageRequestBodyAllOf {
 
       return MaskingUsingMaskImageRequestBodyAllOf(
         textPrompts: TextPrompt.listFromJson(json[r'text_prompts']),
-        initImage: null, // No support for decoding binary content from JSON
+        initImage: MultipartFile('', StreamController<List<int>>().stream,
+            0), // No support for decoding binary content from JSON
         maskSource: mapValueOfType<String>(json, r'mask_source')!,
-        maskImage: null, // No support for decoding binary content from JSON
+        maskImage: MultipartFile('', StreamController<List<int>>().stream,
+            0), // No support for decoding binary content from JSON
       );
     }
     return null;

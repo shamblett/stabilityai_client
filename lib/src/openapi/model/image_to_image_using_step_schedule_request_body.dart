@@ -220,7 +220,8 @@ class ImageToImageUsingStepScheduleRequestBody {
 
       return ImageToImageUsingStepScheduleRequestBody(
         textPrompts: TextPrompt.listFromJson(json[r'text_prompts']),
-        initImage: null, // No support for decoding binary content from JSON
+        initImage: MultipartFile('', StreamController<List<int>>().stream,
+            0), // No support for decoding binary content from JSON
         initImageMode: InitImageMode.fromJson(json[r'init_image_mode']),
         stepScheduleStart: json[r'step_schedule_start'] == null
             ? 0.65

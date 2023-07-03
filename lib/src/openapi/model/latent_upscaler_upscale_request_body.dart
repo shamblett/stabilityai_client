@@ -68,32 +68,35 @@ class LatentUpscalerUpscaleRequestBody {
   num cfgScale;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is LatentUpscalerUpscaleRequestBody &&
-     other.image == image &&
-     other.width == width &&
-     other.height == height &&
-     other.textPrompts == textPrompts &&
-     other.seed == seed &&
-     other.steps == steps &&
-     other.cfgScale == cfgScale;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is LatentUpscalerUpscaleRequestBody &&
+          other.image == image &&
+          other.width == width &&
+          other.height == height &&
+          other.textPrompts == textPrompts &&
+          other.seed == seed &&
+          other.steps == steps &&
+          other.cfgScale == cfgScale;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (image.hashCode) +
-    (width == null ? 0 : width!.hashCode) +
-    (height == null ? 0 : height!.hashCode) +
-    (textPrompts.hashCode) +
-    (seed.hashCode) +
-    (steps.hashCode) +
-    (cfgScale.hashCode);
+      // ignore: unnecessary_parenthesis
+      (image.hashCode) +
+      (width == null ? 0 : width!.hashCode) +
+      (height == null ? 0 : height!.hashCode) +
+      (textPrompts.hashCode) +
+      (seed.hashCode) +
+      (steps.hashCode) +
+      (cfgScale.hashCode);
 
   @override
-  String toString() => 'LatentUpscalerUpscaleRequestBody[image=$image, width=$width, height=$height, textPrompts=$textPrompts, seed=$seed, steps=$steps, cfgScale=$cfgScale]';
+  String toString() =>
+      'LatentUpscalerUpscaleRequestBody[image=$image, width=$width, height=$height, textPrompts=$textPrompts, seed=$seed, steps=$steps, cfgScale=$cfgScale]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'image'] = this.image;
+    json[r'image'] = this.image;
     if (this.width != null) {
       json[r'width'] = this.width;
     } else {
@@ -104,10 +107,10 @@ class LatentUpscalerUpscaleRequestBody {
     } else {
       json[r'height'] = null;
     }
-      json[r'text_prompts'] = this.textPrompts;
-      json[r'seed'] = this.seed;
-      json[r'steps'] = this.steps;
-      json[r'cfg_scale'] = this.cfgScale;
+    json[r'text_prompts'] = this.textPrompts;
+    json[r'seed'] = this.seed;
+    json[r'steps'] = this.steps;
+    json[r'cfg_scale'] = this.cfgScale;
     return json;
   }
 
@@ -123,14 +126,17 @@ class LatentUpscalerUpscaleRequestBody {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "LatentUpscalerUpscaleRequestBody[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "LatentUpscalerUpscaleRequestBody[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "LatentUpscalerUpscaleRequestBody[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "LatentUpscalerUpscaleRequestBody[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
       return LatentUpscalerUpscaleRequestBody(
-        image: null, // No support for decoding binary content from JSON
+        image: MultipartFile('', StreamController<List<int>>().stream,
+            0), // No support for decoding binary content from JSON
         width: mapValueOfType<int>(json, r'width'),
         height: mapValueOfType<int>(json, r'height'),
         textPrompts: TextPrompt.listFromJson(json[r'text_prompts']),
@@ -144,7 +150,10 @@ class LatentUpscalerUpscaleRequestBody {
     return null;
   }
 
-  static List<LatentUpscalerUpscaleRequestBody> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<LatentUpscalerUpscaleRequestBody> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <LatentUpscalerUpscaleRequestBody>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -157,7 +166,8 @@ class LatentUpscalerUpscaleRequestBody {
     return result.toList(growable: growable);
   }
 
-  static Map<String, LatentUpscalerUpscaleRequestBody> mapFromJson(dynamic json) {
+  static Map<String, LatentUpscalerUpscaleRequestBody> mapFromJson(
+      dynamic json) {
     final map = <String, LatentUpscalerUpscaleRequestBody>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
@@ -172,13 +182,19 @@ class LatentUpscalerUpscaleRequestBody {
   }
 
   // maps a json object with a list of LatentUpscalerUpscaleRequestBody-objects as value to a dart map
-  static Map<String, List<LatentUpscalerUpscaleRequestBody>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<LatentUpscalerUpscaleRequestBody>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<LatentUpscalerUpscaleRequestBody>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = LatentUpscalerUpscaleRequestBody.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = LatentUpscalerUpscaleRequestBody.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -189,4 +205,3 @@ class LatentUpscalerUpscaleRequestBody {
     'image',
   };
 }
-

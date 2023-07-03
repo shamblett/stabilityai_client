@@ -200,7 +200,8 @@ class ImageToImageUsingImageStrengthRequestBody {
 
       return ImageToImageUsingImageStrengthRequestBody(
         textPrompts: TextPrompt.listFromJson(json[r'text_prompts']),
-        initImage: null, // No support for decoding binary content from JSON
+        initImage: MultipartFile('', StreamController<List<int>>().stream,
+            0), // No support for decoding binary content from JSON
         initImageMode: InitImageMode.fromJson(json[r'init_image_mode']),
         imageStrength: mapValueOfType<double>(json, r'image_strength') ?? 0.35,
         cfgScale: json[r'cfg_scale'] == null

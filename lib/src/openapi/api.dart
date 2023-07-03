@@ -60,7 +60,6 @@ part 'model/text_to_image_request_body.dart';
 part 'model/text_to_image_request_body_all_of.dart';
 part 'model/upscale_image_request.dart';
 
-
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
 const _dateEpochMarker = 'epoch';
 final _dateFormatter = DateFormat('yyyy-MM-dd');

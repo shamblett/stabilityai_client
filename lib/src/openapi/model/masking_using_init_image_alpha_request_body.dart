@@ -181,7 +181,8 @@ class MaskingUsingInitImageAlphaRequestBody {
 
       return MaskingUsingInitImageAlphaRequestBody(
         textPrompts: TextPrompt.listFromJson(json[r'text_prompts']),
-        initImage: null, // No support for decoding binary content from JSON
+        initImage: MultipartFile('', StreamController<List<int>>().stream,
+            0), // No support for decoding binary content from JSON
         maskSource: mapValueOfType<String>(json, r'mask_source')!,
         cfgScale: json[r'cfg_scale'] == null
             ? 7

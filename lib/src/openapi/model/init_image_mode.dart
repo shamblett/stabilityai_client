@@ -32,9 +32,13 @@ class InitImageMode {
     STEP_SCHEDULE,
   ];
 
-  static InitImageMode? fromJson(dynamic value) => InitImageModeTypeTransformer().decode(value);
+  static InitImageMode? fromJson(dynamic value) =>
+      InitImageModeTypeTransformer().decode(value);
 
-  static List<InitImageMode> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InitImageMode> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InitImageMode>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -51,7 +55,8 @@ class InitImageMode {
 /// Transformation class that can [encode] an instance of [InitImageMode] to String,
 /// and [decode] dynamic data back to [InitImageMode].
 class InitImageModeTypeTransformer {
-  factory InitImageModeTypeTransformer() => _instance ??= const InitImageModeTypeTransformer._();
+  factory InitImageModeTypeTransformer() =>
+      _instance ??= const InitImageModeTypeTransformer._();
 
   const InitImageModeTypeTransformer._();
 
@@ -68,8 +73,10 @@ class InitImageModeTypeTransformer {
   InitImageMode? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'IMAGE_STRENGTH': return InitImageMode.IMAGE_STRENGTH;
-        case r'STEP_SCHEDULE': return InitImageMode.STEP_SCHEDULE;
+        case r'IMAGE_STRENGTH':
+          return InitImageMode.IMAGE_STRENGTH;
+        case r'STEP_SCHEDULE':
+          return InitImageMode.STEP_SCHEDULE;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -82,4 +89,3 @@ class InitImageModeTypeTransformer {
   /// Singleton [InitImageModeTypeTransformer] instance.
   static InitImageModeTypeTransformer? _instance;
 }
-

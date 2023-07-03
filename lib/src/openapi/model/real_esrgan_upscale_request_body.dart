@@ -43,24 +43,27 @@ class RealESRGANUpscaleRequestBody {
   int? height;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is RealESRGANUpscaleRequestBody &&
-     other.image == image &&
-     other.width == width &&
-     other.height == height;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is RealESRGANUpscaleRequestBody &&
+          other.image == image &&
+          other.width == width &&
+          other.height == height;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (image.hashCode) +
-    (width == null ? 0 : width!.hashCode) +
-    (height == null ? 0 : height!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (image.hashCode) +
+      (width == null ? 0 : width!.hashCode) +
+      (height == null ? 0 : height!.hashCode);
 
   @override
-  String toString() => 'RealESRGANUpscaleRequestBody[image=$image, width=$width, height=$height]';
+  String toString() =>
+      'RealESRGANUpscaleRequestBody[image=$image, width=$width, height=$height]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'image'] = this.image;
+    json[r'image'] = this.image;
     if (this.width != null) {
       json[r'width'] = this.width;
     } else {
@@ -86,14 +89,17 @@ class RealESRGANUpscaleRequestBody {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "RealESRGANUpscaleRequestBody[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "RealESRGANUpscaleRequestBody[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "RealESRGANUpscaleRequestBody[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "RealESRGANUpscaleRequestBody[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
       return RealESRGANUpscaleRequestBody(
-        image: null, // No support for decoding binary content from JSON
+        image: MultipartFile('', StreamController<List<int>>().stream,
+            0), // No support for decoding binary content from JSON
         width: mapValueOfType<int>(json, r'width'),
         height: mapValueOfType<int>(json, r'height'),
       );
@@ -101,7 +107,10 @@ class RealESRGANUpscaleRequestBody {
     return null;
   }
 
-  static List<RealESRGANUpscaleRequestBody> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<RealESRGANUpscaleRequestBody> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <RealESRGANUpscaleRequestBody>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -129,13 +138,19 @@ class RealESRGANUpscaleRequestBody {
   }
 
   // maps a json object with a list of RealESRGANUpscaleRequestBody-objects as value to a dart map
-  static Map<String, List<RealESRGANUpscaleRequestBody>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<RealESRGANUpscaleRequestBody>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<RealESRGANUpscaleRequestBody>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = RealESRGANUpscaleRequestBody.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = RealESRGANUpscaleRequestBody.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -146,4 +161,3 @@ class RealESRGANUpscaleRequestBody {
     'image',
   };
 }
-

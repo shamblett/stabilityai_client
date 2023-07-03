@@ -13,9 +13,5 @@ import 'package:test/test.dart';
 
 // tests for InitImageMode
 void main() {
-
-  group('test InitImageMode', () {
-
-  });
-
+  group('test InitImageMode', () {});
 }
