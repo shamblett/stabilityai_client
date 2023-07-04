@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:stabilityai_client/src/openapi/api.dart';
+import 'package:stabilityai_client/stabilityai_client.dart';
 import 'package:test/test.dart';
 
 // tests for AccountResponseBody
@@ -24,6 +24,7 @@ void main() {
       'organizations': <dynamic>[org1.toJson(), org2.toJson()],
       'profile_picture': 'darticulate.com/profile_picture'
     };
+    final instance = AccountResponseBody.fromJson(body);
 
     test('Not a map', () {
       final instance = AccountResponseBody.fromJson('');
@@ -35,30 +36,33 @@ void main() {
           throwsA(isA<AssertionError>()));
     });
 
-    final instance = AccountResponseBody.fromJson(body);
-
     // The user's email
     // String email
-    test('to test the property `email`', () async {
+    test('to test the property `email`', () {
       expect(instance?.email, 'me@here.com');
     });
 
     // The user's ID
     // String id
-    test('to test the property `id`', () async {
+    test('to test the property `id`', () {
       expect(instance?.id, 'me');
     });
 
     // The user's organizations
     // List<OrganizationMembership> organizations (default value: const [])
-    test('to test the property `organizations`', () async {
+    test('to test the property `organizations`', () {
       expect(instance?.organizations, [org1, org2]);
     });
 
     // The user's profile picture
     // String profilePicture
-    test('to test the property `profilePicture`', () async {
+    test('to test the property `profilePicture`', () {
       expect(instance?.profilePicture, 'darticulate.com/profile_picture');
+    });
+
+    test('To JSON', () {
+      expect(instance?.toJson().toString(),
+          '{email: me@here.com, id: me, organizations: [OrganizationMembership[id=1, isDefault=true, name=org1, role=admin], OrganizationMembership[id=2, isDefault=false, name=org2, role=user]], profile_picture: darticulate.com/profile_picture}');
     });
   });
 }
