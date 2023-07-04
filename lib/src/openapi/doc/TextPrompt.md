@@ -2,14 +2,14 @@
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:stabilityai_client/stabilityai_client.dart';
 ```
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**text** | **String** | The prompt itself | 
-**weight** | **double** | Weight of the prompt (use negative numbers for negative prompts) | [optional] 
+ Name       | Type       | Description                                                      | Notes      
+------------|------------|------------------------------------------------------------------|------------
+ **text**   | **String** | The prompt itself                                                | 
+ **weight** | **double** | Weight of the prompt (use negative numbers for negative prompts) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

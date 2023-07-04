@@ -2,15 +2,15 @@
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:stabilityai_client/stabilityai_client.dart';
 ```
 
 All URIs are relative to *https://api.stability.ai*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**userAccount**](V1UserApi.md#useraccount) | **GET** /v1/user/account | account
-[**userBalance**](V1UserApi.md#userbalance) | **GET** /v1/user/balance | balance
+ Method                                      | HTTP request             | Description 
+---------------------------------------------|--------------------------|-------------
+ [**userAccount**](V1UserApi.md#useraccount) | **GET** /v1/user/account | account     
+ [**userBalance**](V1UserApi.md#userbalance) | **GET** /v1/user/balance | balance     
 
 
 # **userAccount**
@@ -22,7 +22,7 @@ Get information about the account associated with the provided API key
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:stabilityai_client/stabilityai_client.dart';
 // TODO Configure API key authorization: STABILITY_API_KEY
 //defaultApiClient.getAuthentication<ApiKeyAuth>('STABILITY_API_KEY').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -65,7 +65,7 @@ Get the credit balance of the account/organization associated with the API key
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:stabilityai_client/stabilityai_client.dart';
 // TODO Configure API key authorization: STABILITY_API_KEY
 //defaultApiClient.getAuthentication<ApiKeyAuth>('STABILITY_API_KEY').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed

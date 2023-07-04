@@ -2,14 +2,14 @@
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:stabilityai_client/stabilityai_client.dart';
 ```
 
 All URIs are relative to *https://api.stability.ai*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**listEngines**](V1EnginesApi.md#listengines) | **GET** /v1/engines/list | list
+ Method                                         | HTTP request             | Description 
+------------------------------------------------|--------------------------|-------------
+ [**listEngines**](V1EnginesApi.md#listengines) | **GET** /v1/engines/list | list        
 
 
 # **listEngines**
@@ -21,7 +21,7 @@ List all engines available to your organization/user
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:stabilityai_client/stabilityai_client.dart';
 // TODO Configure API key authorization: STABILITY_API_KEY
 //defaultApiClient.getAuthentication<ApiKeyAuth>('STABILITY_API_KEY').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -42,11 +42,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organization** | **String**| Allows for requests to be scoped to an organization other than the user's default.  If not provided, the user's default organization will be used. | [optional] 
- **stabilityClientID** | **String**| Used to identify the source of requests, such as the client application or sub-organization. Optional, but recommended for organizational clarity. | [optional] 
- **stabilityClientVersion** | **String**| Used to identify the version of the application or service making the requests. Optional, but recommended for organizational clarity. | [optional] 
+ Name                       | Type       | Description                                                                                                                                        | Notes      
+----------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------|------------
+ **organization**           | **String** | Allows for requests to be scoped to an organization other than the user's default.  If not provided, the user's default organization will be used. | [optional] 
+ **stabilityClientID**      | **String** | Used to identify the source of requests, such as the client application or sub-organization. Optional, but recommended for organizational clarity. | [optional] 
+ **stabilityClientVersion** | **String** | Used to identify the version of the application or service making the requests. Optional, but recommended for organizational clarity.              | [optional] 
 
 ### Return type
 

@@ -2,7 +2,7 @@
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:stabilityai_client/stabilityai_client.dart';
 ```
 
 ## Properties
