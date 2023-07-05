@@ -9,7 +9,7 @@ import 'package:stabilityai_client/stabilityai_client.dart';
 
 /// An example of how to use the Stability API V1 to list
 /// all engines available to your organization/user.
-///
+
 Future<void> main() async {
   // Create an API client with API key authentication
   final client =
