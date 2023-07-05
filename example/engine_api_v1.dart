@@ -12,29 +12,33 @@ import 'package:stabilityai_client/stabilityai_client.dart';
 ///
 Future<void> main() async {
   // Create an API client with API key authentication
-  final client = ApiClient(
-      authentication: ApiKeyAuth('header', 'Authorization')..apiKey = '');
+  final client = StabilityaiClient.getApiKeyAuthClient('YOUR-API-KEY');
 
   // Get an instance of the V1 engines API using our client
   final apiInstance = V1EnginesApi(client);
 
   // Set the remaining parameters
 
-  // Allows for requests to be scoped to an organization other than the user's
-  // default.  If not provided, the user's default organization will be used.
-  //final organization = ''; //'''org-123456';
+  // Use the default organisation, i.e we don't set one.
+
   // Used to identify the source of requests, such as the client application or sub-organization.
   // Optional, but recommended for organizational clarity.
-  final stabilityClientID = 'my-great-plugin';
+  final stabilityClientID = 'Your-Client-Id';
   // Used to identify the version of the application or service making the requests.
   // Optional, but recommended for organizational clarity.
-  final stabilityClientVersion = '1.0.0';
+  final stabilityClientVersion = StabilityaiClient.version;
 
   try {
     final result = await apiInstance.listEngines(
-        //organization: organization,
         stabilityClientID: stabilityClientID,
         stabilityClientVersion: stabilityClientVersion);
+    if (result!.isNotEmpty) {
+      for (final engine in result) {
+        print(engine);
+      }
+    } else {
+      print("No engines listed");
+    }
     print(result);
   } catch (e) {
     print('Exception when calling V1EnginesApi->listEngines: $e\n');
