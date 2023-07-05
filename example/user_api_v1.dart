@@ -12,15 +12,14 @@ import 'package:stabilityai_client/stabilityai_client.dart';
 
 Future<void> main() async {
   // Create an API client with API key authentication
-  final client =
-      StabilityaiClient.getApiKeyAuthClient('YOUR-STABILITY-API-KEY');
+  final client = StabilityaiClient.getApiKeyAuthClient('YOUR-API-KEY');
 
   // Get an instance of the V1 engines API using our client
   final apiInstance = V1UserApi(client);
 
   try {
-    var result = await apiInstance.userAccount();
-    print('User account details');
+    final result = await apiInstance.userAccount();
+    print('User account details -->');
     print('');
     print(result);
   } catch (e) {
@@ -28,8 +27,17 @@ Future<void> main() async {
   }
 
   try {
-    var result = await apiInstance.userBalance();
-    print('User balance details');
+    // Used to identify the source of requests, such as the client application or sub-organization.
+    // Optional, but recommended for organizational clarity.
+    final stabilityClientID = 'Your-Client-Id';
+    // Used to identify the version of the application or service making the requests.
+    // Optional, but recommended for organizational clarity.
+    final stabilityClientVersion = StabilityaiClient.version;
+    final result = await apiInstance.userBalance(
+        stabilityClientID: stabilityClientID,
+        stabilityClientVersion: stabilityClientVersion);
+    print('');
+    print('User balance details --> ');
     print('');
     print(result);
   } catch (e) {

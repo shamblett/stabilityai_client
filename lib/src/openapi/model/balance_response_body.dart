@@ -59,7 +59,7 @@ final class BalanceResponseBody {
       }());
 
       return BalanceResponseBody(
-        credits: mapValueOfType<double>(json, r'credits')!,
+        credits: mapValueOfType<int>(json, r'credits')!.toDouble(),
       );
     }
     return null;
