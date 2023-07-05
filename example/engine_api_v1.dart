@@ -7,10 +7,19 @@
 
 import 'package:stabilityai_client/stabilityai_client.dart';
 
+/// An example of how to use the Stability API V1 to list
+/// all engines available to your organization/user.
+///
 void main() {
+  // Create an API client with API key authentication
   final client = ApiClient(
-      authentication: ApiKeyAuth('apikey', '')); // Api Key authentication
+      authentication: ApiKeyAuth('', '')..apiKey = 'STABILITY_API_KEY');
+
+  // Get an instance of the V1 engines API using our client
   final apiInstance = V1EnginesApi(client);
+
+  // Set the remaining parameters
+
   // Allows for requests to be scoped to an organization other than the user's
   // default.  If not provided, the user's default organization will be used.
   final organization = 'org-123456';
