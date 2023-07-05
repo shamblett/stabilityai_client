@@ -12,7 +12,8 @@ import 'package:stabilityai_client/stabilityai_client.dart';
 ///
 Future<void> main() async {
   // Create an API client with API key authentication
-  final client = StabilityaiClient.getApiKeyAuthClient('YOUR-API-KEY');
+  final client =
+      StabilityaiClient.getApiKeyAuthClient('YOUR-STABILITY-API-KEY');
 
   // Get an instance of the V1 engines API using our client
   final apiInstance = V1EnginesApi(client);
@@ -32,6 +33,8 @@ Future<void> main() async {
     final result = await apiInstance.listEngines(
         stabilityClientID: stabilityClientID,
         stabilityClientVersion: stabilityClientVersion);
+    print('Available engines :-');
+    print('');
     if (result!.isNotEmpty) {
       for (final engine in result) {
         print(engine);
@@ -39,7 +42,7 @@ Future<void> main() async {
     } else {
       print("No engines listed");
     }
-    print(result);
+    print('');
   } catch (e) {
     print('Exception when calling V1EnginesApi->listEngines: $e\n');
   }
