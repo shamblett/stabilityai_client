@@ -46,4 +46,6 @@ Future<void> main() async {
   } catch (e) {
     print('Exception when calling V1 EnginesApi->listEngines: $e\n');
   }
+
+  return;
 }

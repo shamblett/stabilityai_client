@@ -24,7 +24,7 @@ Future<void> main() async {
   final textToImageRequestBody = TextToImageRequestBody()
     ..textPrompts = [prompt]; // TextToImageRequestBody |
   final accept =
-      ''; // String | The format of the response.  Leave blank for JSON, or set to 'image/png' for a PNG image.
+      'application/json'; // String | The format of the response.  Set to 'image/png' for a PNG image.
   final stabilityClientID =
       'Your-Client-Id'; // String | Used to identify the source of requests, such as the client application or sub-organization. Optional, but recommended for organizational clarity.
   final stabilityClientVersion = StabilityaiClient
