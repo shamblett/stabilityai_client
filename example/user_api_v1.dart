@@ -14,7 +14,7 @@ Future<void> main() async {
   // Create an API client with API key authentication
   final client = StabilityaiClient.getApiKeyAuthClient('YOUR-API-KEY');
 
-  // Get an instance of the V1 engines API using our client
+  // Get an instance of the V1 user API using our client
   final apiInstance = V1UserApi(client);
 
   try {
@@ -23,7 +23,7 @@ Future<void> main() async {
     print('');
     print(result);
   } catch (e) {
-    print('Exception when calling V1EnginesApi->userAccount: $e\n');
+    print('Exception when calling V1 UserApi->userAccount: $e\n');
   }
 
   try {
@@ -41,6 +41,6 @@ Future<void> main() async {
     print('');
     print(result);
   } catch (e) {
-    print('Exception when calling V1EnginesApi->userBalance: $e\n');
+    print('Exception when calling V1 UserApi->userBalance: $e\n');
   }
 }
