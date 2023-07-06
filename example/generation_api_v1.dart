@@ -11,7 +11,7 @@ import 'package:stabilityai_client/stabilityai_client.dart';
 
 Future<void> main() async {
   // Create an API client with API key authentication
-  final client = StabilityaiClient.getApiKeyAuthClient('YOUR_API-KEY');
+  final client = StabilityaiClient.getApiKeyAuthClient('YOUR_STABILITY_API-KEY');
 
   // Get an instance of the V1 generation API using our client
   final apiInstance = V1GenerationApi(client);
