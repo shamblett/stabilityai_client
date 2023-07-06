@@ -97,9 +97,6 @@ final class Image {
         return true;
       }());
 
-      // Strip artifacts
-      json = json[r'artifacts'][0];
-
       return Image(
         base64: mapValueOfType<String>(json, r'base64'),
         finishReason: ImageFinishReasonEnum.fromJson(json[r'finishReason']),

@@ -5,13 +5,16 @@
  * Copyright :  S.Hamblett
  */
 
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:stabilityai_client/stabilityai_client.dart';
 
 /// An example of how to use the Stability API V1 to generate a new image from a text prompt
 
 Future<void> main() async {
   // Create an API client with API key authentication
-  final client = StabilityaiClient.getApiKeyAuthClient('YOUR_STABILITY_API-KEY');
+  final client = StabilityaiClient.getApiKeyAuthClient('YOUR-STABILITY-API-KEY');
 
   // Get an instance of the V1 generation API using our client
   final apiInstance = V1GenerationApi(client);
@@ -22,9 +25,11 @@ Future<void> main() async {
       text: 'Generate an image for the Dart programming language',
       weight: 0.85);
   final textToImageRequestBody = TextToImageRequestBody()
-    ..textPrompts = [prompt]; // TextToImageRequestBody |
+    ..textPrompts = [prompt]
+    ..clipGuidancePreset = ClipGuidancePreset.NONE // Needed
+    ..samples = 2; // Number of images
   final accept =
-      'image/png'; // String | The format of the response.  Set to 'image/png' for a PNG image.
+      'application/json'; // String | The format of the response.
   final stabilityClientID =
       'Your-Client-Id'; // String | Used to identify the source of requests, such as the client application or sub-organization. Optional, but recommended for organizational clarity.
   final stabilityClientVersion = StabilityaiClient
@@ -36,10 +41,19 @@ Future<void> main() async {
         stabilityClientID: stabilityClientID,
         stabilityClientVersion: stabilityClientVersion);
     print('');
+    final fileName = 'yourimage';
+    var count = 1;
     if (result!.isNotEmpty) {
       print('Image details --> ');
+      print('');
       for (final image in result) {
-        print(image);
+        print('Finish Reason : ${image.finishReason}');
+        print('Seed: ${image.seed}');
+        final png = base64Decode(image.base64!);
+        final file = File('$fileName-$count.png');
+        file.writeAsBytesSync(png);
+        print('Your image is in the file ../$fileName-$count.png');
+        count++;
       }
     } else {
       print('No image generated');

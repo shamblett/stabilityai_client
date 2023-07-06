@@ -229,9 +229,15 @@ final class ApiClient {
         case 'GenerationRequestOptionalParams':
           return GenerationRequestOptionalParams.fromJson(value);
         case 'Image':
+          value = value[r'artifacts'][0];
           return Image.fromJson(value);
         case 'List<Image>':
-          return [Image.fromJson(value)];
+          value = value[r'artifacts'];
+          final images = <Image>[];
+          for (final image in value) {
+            images.add(Image.fromJson(image)!);
+          }
+          return images;
         case 'ImageToImageRequestBody':
           return ImageToImageRequestBody.fromJson(value);
         case 'ImageToImageUsingImageStrengthRequestBody':
