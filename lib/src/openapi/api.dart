@@ -14,7 +14,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io' if (dart.library.html) 'dart:html';
 
-import 'package:http/http.dart';
+import '../http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
 
