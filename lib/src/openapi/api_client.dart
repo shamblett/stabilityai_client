@@ -183,7 +183,6 @@ final class ApiClient {
     // Remove all spaces. Necessary for regular expressions as well.
     targetType =
         targetType.replaceAll(' ', ''); // ignore: parameter_assignments
-
     // If the expected target type is String, nothing to do...
     return targetType == 'String'
         ? json
@@ -231,6 +230,8 @@ final class ApiClient {
           return GenerationRequestOptionalParams.fromJson(value);
         case 'Image':
           return Image.fromJson(value);
+        case 'List<Image>':
+          return [Image.fromJson(value)];
         case 'ImageToImageRequestBody':
           return ImageToImageRequestBody.fromJson(value);
         case 'ImageToImageUsingImageStrengthRequestBody':

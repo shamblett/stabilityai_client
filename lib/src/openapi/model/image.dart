@@ -82,7 +82,7 @@ final class Image {
   // ignore: prefer_constructors_over_static_methods
   static Image? fromJson(dynamic value) {
     if (value is Map) {
-      final json = value.cast<String, dynamic>();
+      var json = value.cast<String, dynamic>();
 
       // Ensure that the map contains the required keys.
       // Note 1: the values aren't checked for validity beyond being non-null.
@@ -96,6 +96,9 @@ final class Image {
         }
         return true;
       }());
+
+      // Strip artifacts
+      json = json[r'artifacts'][0];
 
       return Image(
         base64: mapValueOfType<String>(json, r'base64'),
