@@ -11,7 +11,7 @@ import 'package:stabilityai_client/stabilityai_client.dart';
 
 Future<void> main() async {
   // Create an API client with API key authentication
-  final client = StabilityaiClient.getApiKeyAuthClient('YOUR-API-KEY');
+  final client = StabilityaiClient.getApiKeyAuthClient('YOUR_API-KEY');
 
   // Get an instance of the V1 generation API using our client
   final apiInstance = V1GenerationApi(client);
@@ -24,7 +24,7 @@ Future<void> main() async {
   final textToImageRequestBody = TextToImageRequestBody()
     ..textPrompts = [prompt]; // TextToImageRequestBody |
   final accept =
-      'application/json'; // String | The format of the response.  Set to 'image/png' for a PNG image.
+      'image/png'; // String | The format of the response.  Set to 'image/png' for a PNG image.
   final stabilityClientID =
       'Your-Client-Id'; // String | Used to identify the source of requests, such as the client application or sub-organization. Optional, but recommended for organizational clarity.
   final stabilityClientVersion = StabilityaiClient
@@ -47,4 +47,6 @@ Future<void> main() async {
   } catch (e) {
     print('Exception when calling V1 GenerationApi->textToImage: $e\n');
   }
+
+  return;
 }
