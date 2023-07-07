@@ -17,7 +17,8 @@ import 'package:stabilityai_client/stabilityai_client.dart';
 Future<void> main() async {
   final imagesGenerated = <Uint8List>[];
   final tmpDir = Directory.systemTemp.path;
-  const fileNamePrefix = 'yourimage';
+  const fileNamePrefixTti = 'yourimage';
+  const fileNamePrefixIti = 'yourimage2image';
 
   // Create an API client with API key authentication
   final client =
@@ -26,20 +27,22 @@ Future<void> main() async {
   // Get an instance of the V1 generation API using our client
   final apiInstance = V1GenerationApi(client);
 
-  // Other parameters
+  //
+  // Text to image - Generate a new image from a text prompt
+  //
 
   // Engine Id, see the Engines API
   final engineId = 'stable-diffusion-v1-5';
 
   // The prompt with weight
-  final prompt = TextPrompt(text: 'People playing darts', weight: 0.85);
+  final promptTti = TextPrompt(text: 'People playing darts', weight: 0.85);
 
   // Request body, clip guidance preset must be specified, samples is the number of images needed,
   // set other parameters as required.
   final textToImageRequestBody = TextToImageRequestBody()
-    ..textPrompts = [prompt]
+    ..textPrompts = [promptTti]
     ..clipGuidancePreset = ClipGuidancePreset.NONE // Needed
-    ..samples = 2;
+    ..samples = 1;
 
   // Must be application/json
   final accept = 'application/json';
@@ -66,7 +69,7 @@ Future<void> main() async {
       print('');
       for (final image in result) {
         final fileName =
-            '$tmpDir${Platform.pathSeparator}$fileNamePrefix-$count.png';
+            '$tmpDir${Platform.pathSeparator}$fileNamePrefixTti-$count.png';
         print('Finish Reason : ${image.finishReason}');
         print('Seed: ${image.seed}');
         final png = base64Decode(image.base64!);
@@ -78,10 +81,57 @@ Future<void> main() async {
         count++;
       }
     } else {
-      print('No image generated');
+      print('No image generated - exiting');
+      return;
     }
   } catch (e) {
-    print('Exception when calling V1 GenerationApi->textToImage: $e\n');
+    print('Exception when calling V1 GenerationApi->textToImage: $e - exiting');
+    return;
+  }
+
+  //
+  // Image to image - Modify an image based on a text prompt
+  //
+
+  // The prompt with weight
+  final promptIti =
+      TextPrompt(text: 'People playing darts on a stage', weight: 0.85);
+
+  // The image to modify
+  final image = MultipartFile.fromBytes('image', imagesGenerated[0]);
+
+  // Make the call
+  try {
+    final result = await apiInstance.imageToImage(engineId, [promptIti], image,
+        accept: accept,
+        stabilityClientID: stabilityClientID,
+        stabilityClientVersion: stabilityClientVersion);
+    print('');
+    var count = 1;
+    if (result!.isNotEmpty) {
+      print('Image details --> ');
+      print('');
+      for (final image in result) {
+        final fileName =
+            '$tmpDir${Platform.pathSeparator}$fileNamePrefixIti-$count.png';
+        print('Finish Reason : ${image.finishReason}');
+        print('Seed: ${image.seed}');
+        final png = base64Decode(image.base64!);
+        imagesGenerated.add(png);
+        final file = File(fileName);
+        file.writeAsBytesSync(png);
+        print('Your image is in the file $fileName');
+        print('');
+        count++;
+      }
+    } else {
+      print('No image generated - exiting');
+      return;
+    }
+  } catch (e) {
+    print(
+        'Exception when calling V1 GenerationApi->imageToImage: $e - exiting');
+    return;
   }
 
   return;

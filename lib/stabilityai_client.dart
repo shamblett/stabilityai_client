@@ -9,5 +9,6 @@ library stabilityai_client;
 
 import 'package:stabilityai_client/src/openapi/api.dart';
 export 'package:stabilityai_client/src/openapi/api.dart';
+export 'package:stabilityai_client/src/http/http.dart';
 
 part 'src/stabilityai_client.dart';
