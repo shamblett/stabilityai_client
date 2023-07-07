@@ -56,6 +56,8 @@ Future<void> main() async {
   final stabilityClientVersion = StabilityaiClient.version;
 
   // Make the call
+  print('Generating an image from a text prompt');
+  print('');
   try {
     final result = await apiInstance.textToImage(
         engineId, textToImageRequestBody,
@@ -101,6 +103,8 @@ Future<void> main() async {
   final image = MultipartFile.fromBytes('image', imagesGenerated[0]);
 
   // Make the call
+  print('Modifying an existing image from a text prompt');
+  print('');
   try {
     final result = await apiInstance.imageToImage(engineId, [promptIti], image,
         accept: accept,
