@@ -100,7 +100,7 @@ Future<void> main() async {
       TextPrompt(text: 'People playing darts on a stage', weight: 0.85);
 
   // The image to modify
-  final image = MultipartFile.fromBytes('image', imagesGenerated[0]);
+  final image = StabilityaiClient.getImageForImage2Image(imagesGenerated[0]);
 
   // Make the call
   print('Modifying an existing image from a text prompt');

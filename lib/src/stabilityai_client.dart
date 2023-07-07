@@ -24,4 +24,8 @@ class StabilityaiClient {
 
   /// Client version
   static const version = '1.0.0';
+
+  /// Get a multi part file for image to image usage.
+  static MultipartFile getImageForImage2Image(Uint8List pngBytes) =>
+      MultipartFile.fromBytes('init_image', pngBytes);
 }

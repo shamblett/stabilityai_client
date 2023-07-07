@@ -7,8 +7,11 @@
 
 library stabilityai_client;
 
+import 'dart:typed_data';
+
 import 'package:stabilityai_client/src/openapi/api.dart';
 export 'package:stabilityai_client/src/openapi/api.dart';
+import 'package:stabilityai_client/src/http/http.dart';
 export 'package:stabilityai_client/src/http/http.dart';
 
 part 'src/stabilityai_client.dart';
