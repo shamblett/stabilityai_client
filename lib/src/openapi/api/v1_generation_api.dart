@@ -127,7 +127,12 @@ final class V1GenerationApi {
     bool hasFields = false;
     final mp = MultipartRequest('POST', Uri.parse(path));
     hasFields = true;
-    mp.fields[r'text_prompts'] = parameterToString(textPrompts);
+
+    // Generate the text prompts in multipart array format
+    for (int i = 0; i < textPrompts.length; i++) {
+      mp.fields['text_prompts[$i][text]'] = textPrompts[i].text;
+      mp.fields['text_prompts[$i][weight]'] = textPrompts[i].weight.toString();
+    }
     hasFields = true;
     mp.fields[r'init_image'] = initImage.field;
     mp.files.add(initImage);
