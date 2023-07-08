@@ -147,7 +147,7 @@ Future<void> main() async {
   engineId = 'esrgan-v1-x2plus';
 
   // Set the width/height. Only one of width/height may be specified.
-  final width = 512;
+  final width = 2048;
 
   // Make the call
   print('*** Upscaling an existing image using the ESRGAN x2 Upscaler ***');
