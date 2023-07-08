@@ -19,6 +19,7 @@ Future<void> main() async {
   final tmpDir = Directory.systemTemp.path;
   const fileNamePrefixTti = 'yourimage';
   const fileNamePrefixIti = 'yourimage2image';
+  const fileNamePrefixUpscaled = 'yourimage2imageupscaled';
 
   // Create an API client with API key authentication
   final client =
@@ -32,7 +33,7 @@ Future<void> main() async {
   //
 
   // Engine Id, see the Engines API
-  final engineId = 'stable-diffusion-v1-5';
+  var engineId = 'stable-diffusion-v1-5';
 
   // The prompt with weight
   final promptTti = TextPrompt(text: 'People playing darts', weight: 0.85);
@@ -99,7 +100,7 @@ Future<void> main() async {
       TextPrompt(text: 'People playing darts on a stage', weight: 0.85);
 
   // The image to modify
-  final image = StabilityaiClient.getImageForImage2Image(imagesGenerated[0]);
+  var image = StabilityaiClient.getImageForImage2Image(imagesGenerated[0]);
 
   // Make the call
   print('*** Modifying an existing image from a text prompt ***');
@@ -119,7 +120,6 @@ Future<void> main() async {
         print('Finish Reason : ${image.finishReason}');
         print('Seed: ${image.seed}');
         final png = base64Decode(image.base64!);
-        imagesGenerated.add(png);
         final file = File(fileName);
         file.writeAsBytesSync(png);
         print('Your image is in the file $fileName');
@@ -133,6 +133,54 @@ Future<void> main() async {
   } catch (e) {
     print(
         'Exception when calling V1 GenerationApi->imageToImage: $e - exiting');
+    return;
+  }
+
+  //
+  // Image to image Upscale - Create a higher resolution version of an input image.
+  //
+
+  // The image to modify
+  image = StabilityaiClient.getImageForImage2ImageUpscale(imagesGenerated[0]);
+
+  // Set the engine to the esrgan-v1-x2plus
+  engineId = 'esrgan-v1-x2plus';
+
+  // Set the width/height. Only one of width/height may be specified.
+  final width = 512;
+
+  // Make the call
+  print('*** Upscaling an existing image using the ESRGAN x2 Upscaler ***');
+  try {
+    final result = await apiInstance.upscaleImage(engineId, image,
+        accept: accept,
+        stabilityClientID: stabilityClientID,
+        stabilityClientVersion: stabilityClientVersion,
+        width: width);
+    print('');
+    var count = 1;
+    if (result!.isNotEmpty) {
+      print('Image details --> ');
+      print('');
+      for (final image in result) {
+        final fileName =
+            '$tmpDir${Platform.pathSeparator}$fileNamePrefixUpscaled-$count.png';
+        print('Finish Reason : ${image.finishReason}');
+        print('Seed: ${image.seed}');
+        final png = base64Decode(image.base64!);
+        final file = File(fileName);
+        file.writeAsBytesSync(png);
+        print('Your image is in the file $fileName');
+        print('');
+        count++;
+      }
+    } else {
+      print('No image generated - exiting');
+      return;
+    }
+  } catch (e) {
+    print(
+        'Exception when calling V1 GenerationApi->upscaleImage: $e - exiting');
     return;
   }
 

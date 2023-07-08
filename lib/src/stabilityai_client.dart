@@ -28,4 +28,8 @@ class StabilityaiClient {
   /// Get a multi part file for image to image usage.
   static MultipartFile getImageForImage2Image(Uint8List pngBytes) =>
       MultipartFile.fromBytes('init_image', pngBytes);
+
+  /// Get a multi part file for image to image upscale usage.
+  static MultipartFile getImageForImage2ImageUpscale(Uint8List pngBytes) =>
+      MultipartFile.fromBytes('image', pngBytes);
 }
