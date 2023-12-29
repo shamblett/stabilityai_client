@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of '../api.dart';
 
 /// Pass in a style preset to guide the image model towards a particular style. This list of style presets is subject to change.
 final class StylePreset {

@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of '../api.dart';
 
 /// Which sampler to use for the diffusion process. If this value is omitted we'll automatically select an appropriate sampler for you.
 final class Sampler {

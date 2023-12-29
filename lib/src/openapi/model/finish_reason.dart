@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of '../api.dart';
 
 /// The result of the generation process. - `SUCCESS` indicates success - `ERROR` indicates an error - `CONTENT_FILTERED` indicates the result affected by the content filter and may be blurred.  This header is only present when the `Accept` is set to `image/png`.  Otherwise it is returned in the response body.
 final class FinishReason {

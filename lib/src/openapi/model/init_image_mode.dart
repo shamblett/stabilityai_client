@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-part of openapi.api;
+part of '../api.dart';
 
 /// Whether to use `image_strength` or `step_schedule_*` to control how much influence the `init_image` has on the result.
 final class InitImageMode {
