@@ -5,7 +5,7 @@
  * Copyright :  S.Hamblett
  */
 
-part of stabilityai_client;
+part of '../stabilityai_client.dart';
 
 ///
 /// Stability AI client class.
