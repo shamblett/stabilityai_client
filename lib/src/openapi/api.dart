@@ -8,11 +8,12 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-library openapi.api;
+library;
 
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io' if (dart.library.html) 'dart:html';
+import 'api_dart_io_import.dart'
+    if (dart.library.js_interop) 'api_web_import.dart';
 
 import '../http/http.dart';
 import 'package:intl/intl.dart';
